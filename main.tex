@@ -3,6 +3,10 @@
 
 \usepackage[T2A]{fontenc} % указывает внутреннюю кодировку TeX
 \usepackage[english]{babel}   %% загружает пакет многоязыковой вёрстки
+\usepackage{color}
+\usepackage{tasks}
+\settasks {counter-format=(tsk[r])}
+%\usepackage{exsheets}
 \usepackage{array,graphicx,caption,paralist}
 \newcommand{\er}{\textmd{EXPERTroot}}
 
@@ -22,22 +26,19 @@
 	Dubna State University, Russia
 }
 \abstract{%
+	\color{red}
 	This work is devoted to the calculation of the time resolution of the prototype of the neutron detector NeuRad. The NeuRad detector will be one of the EXPERT setup modules at Super-FRS. The experiments for calculation the time characteristics of the prototype of the NeuRad detector are described. The data processed methods were implemented into \er\, by which the simulation of the experiment was carried out.
 }
 %
 \maketitle
 %
-Studying exotic nuclei is one of the most important fields in modern nuclear physics. Exotic nuclei are nuclei in which the ratio of the number of neutrons to the number of protons is much larger or smaller than in nuclei found in nature. In the case of exotic nuclei, such phenomena as neutron halo, soft mode of dipole excitation and others could be observed. As far as exotic nuclei are unstable there is a problem how to produce it. One of the most developed setup for production and separation   exotic nuclei in flight will be fragment separator Super-FRS at FAIR (Facility for Antiproton and Ion Research) \cite{diplom}. Project EXPERT (EXotic Particle Emission and Radioactivity by Tracking \cite{IMexpert}) dedicated to studying exotic nuclei properties is a part of program of the Super-FRS Experiment Collaboration. EXPERT setup (Fig.\ref{IMris:expert}) consists of few modules each of which is intended to detect different decay products. 
-
+\color{red}
+\section{Intoduction}
+Studying exotic nuclei is one of the most important fields in modern nuclear physics. Exotic nuclei are nuclei in which the ratio of the number of neutrons to the number of protons is much larger or smaller than in nuclei found in nature. In the case of exotic nuclei, such phenomena as neutron halo, soft mode of dipole excitation and others could be observed. As far as exotic nuclei are unstable there is a problem how to produce it. One of the most developed setup for production and separation   exotic nuclei in flight will be fragment separator Super-FRS at FAIR (Facility for Antiproton and Ion Research) \cite{diplom}. Project EXPERT (EXotic Particle Emission and Radioactivity by Tracking \cite{IMexpert}) dedicated to studying exotic nuclei properties is a part of program of the Super-FRS Experiment Collaboration. EXPERT setup consists of few modules each of which is intended to detect different decay products. 
+\color{black}
 %The EXPERT (EXotic Particle Emission and Radioactivity by Tracking) is a part of the physics program of the Super-FRS Experiment Collaboration. The experiments within EXPERT project are aimed at studies of the unknown exotic nuclear systems. 
 %in the most-remote parts of the nuclear landscape which are characterized by the two borders between bound and un-bound nuclide (i.e. nuclear landscape beyond the proton and neutron drip-lines). 
 %These experiments will use the first half of the Super-FRS as a radioactive beam separator and its second half as a high-resolution spectrometer. The exotic nuclei of interest will be produced in the middle focal plane of the Super-FRS. They are expected to decay in flight, and outgoing fragments (i.e., precursor-like decay products) will be tracked and then identified by the spectrometer part.
-
-\begin{figure}[h]
-	\center{\includegraphics[width=1\linewidth]{expert.png}}
-	\caption{The EXPERT setup}
-	\label{IMris:expert}
-\end{figure}
 
 These modules are:
 %\begin{enumerate}
@@ -48,6 +49,7 @@ These modules are:
 %	\item The NeuRad (Neutron Radioactivity) fine-resolution detector of neutrons. Together with $\mu$Si detectors, NeuRad will be able to provide precise information on angular correlations of decay neutrons with a charged fragment. This information will be used for calculations of the decay energy of the exotic nuclei \cite{IMexpert}.	
 %\end{enumerate}
 
+%paraenum clелать другой
 \begin{inparadesc}
 	\item[1] Radiation-hard silicon strip detector (SSD).
 	\item[2] Microstrip silicon ($\mu$Si) tracking detectors.
@@ -56,24 +58,40 @@ These modules are:
 	\item[5]	The NeuRad (Neutron Radioactivity) fine-resolution detector of neutrons.
 \end{inparadesc}
 
-Additional important task of the EXPERT project is the development of a framework for simulations of the experiments and processing experimental data. For this purpose a framework EXPERTroot \cite{er} has been developed. EXPERTroot is a framework for Monte-Carlo simulations of detector responses, event reconstruction and EXPERT experiment analysis.
+\begin{tasks}(2)
+	\task Radiation-hard silicon strip detector (SSD).
+	\task Microstrip silicon ($\mu$Si) tracking detectors.
+	\task The gamma-ray and light particles detector system GADAST (GAmma-ray Detectors Around Secondary Target).
+	\task The OTPC (Optical Time Projection Chamber) for radioactivity studies by the implantation-decay method.
+	\task The NeuRad (Neutron Radioactivity) fine-resolution detector of neutrons.
+\end{tasks}
 
-This paper is dedicated to measurements of time properties of the NeuRad detector and development of the EXPERTroot for simulating conducted experiments and processing data.
+Additional important part of the EXPERT project is a framework for simulations of the experiments and processing of experimental data. For this purpose a framework EXPERTroot \cite{er} has been developed. %EXPERTroot is a framework for Monte-Carlo simulations of detector responses, event reconstruction and EXPERT experiment analysis.
+
+This paper is dedicated to tests of a prototype of the NeuRad detector time properties and development of the EXPERTroot.
 
 \section{NeuRad}
-A neutron detector NeuRad is aimed at providing precise information on angular correlations between nuclear-decay neutrons and a charged decay products measured by the rest of EXPERT setup. An information on angular correlations will be used to determine the decay energy of the precursor and the corresponding lifetime of the exotic nuclei. Coordinates of a heavy charged fragment will be obtained by an array of $\mu$Si detectors. The trajectories of neutrons will be measured by NeuRad. The total angular acceptance of the detector will be 12 mrad. %This number is determined by the low transfer momentum of the decay with energies expected in the range of 0.1-100 keV. 
-The detector itself will be constructed from a large number of optical fibers ($\approx$10000 units). Each fiber will have a square cross section of 3$\times$3 mm$^2$ and the length of 1 m. Scintillating fibers will be grouped into bundles. For readout multi-anode photo multiplier tubes (MAPMTs) will be used. 
+Neutron detector NeuRad is aimed at providing precise information on angular correlations between nuclear-decay neutrons emitted from decay and heavy ion fragment which will be identified by Super-FRS beam diagnostic system. An information on angular correlations will be used to determine the decay energy of the precursor and its lifetime. Trajectories of a heavy ion and neutrons will be reconstructed by an array of $\mu$Si detectors and NeuRad detector respectively. %The trajectories of neutrons will be reconstructed from the data obtained by NeuRad.  %This number is determined by the low transfer momentum of the decay with energies expected in the range of 0.1-100 keV.  
+NeuRad will be constructed from a large number of scintillating fibers ($\approx$10000 units). Each fiber will have a square cross section of 3$\times$3 mm$^2$ and the length of 1 m. Scintillating fibers will be grouped into bundles. 
+The neutrons penetrating the detector will be mostly elastically scattered by protons. In such a case recoil proton will produce an ionization followed by a scintillation flash inside the fiber. The light emitted within the full reflection angle travels to the MAPTs located at both ends of the fiber.
+MAPMTs will be attached to the NeuRad so that the area of each pixel corresponding to its anode completely overlaps the cross section of one fiber.
+The neutrons penetrating the detector will be mostly elastically scattered by protons. In such a case recoil proton will produce an ionization followed by a scintillation flash inside the fiber. The light emitted within the full reflection angle travels to the MAPTs located at both ends of the fiber.
 
-During the experiments NeuRad will be placed along the beam direction, see Fig.\ref{ris:neuradPrinciple}. This is planned in order to provide sufficient efficiency of the detection and fine position resolution for neutrons with energies in lab system about 200-800 MeV interacting with the material of the fibers, in particular, via elastic scattering. In such a case recoil nucleus/proton produces an ionization followed by a scintillation flash inside the fiber. The light emitted within the full reflection angle travels to the photodetectors located at both ends of the fiber.
+During the experiments NeuRad will be placed in 28 meters from secondary target so that the fibers will be oriented along the beam direction, see Fig.\ref{ris:neuradPrinciple}.
+Thus, the neutron beam will pass through the photomultiplier before penetrating into the detector.
+Two transverse to the direction of the beam coordinates of the neutron interaction with the detector material will be obtained by determination of the fiber number in which the scattering would be occurred.
+And the longitudinal coordinate will be determined by measuring the time difference of the signals from two MAPTs located on opposite sides of the detector.
 
+This is planned in order to provide sufficient efficiency of the detection and fine position resolution for neutrons with energies in lab system about 200-800 MeV.
+With such a configuration the total angular acceptance of the detector will be about 12 mrad.
 \begin{figure}[h]
 	\center{\includegraphics[width=1\linewidth]{neurad.png}}
 	\caption{Illustration of the operational principle of NeuRad detector}
 	\label{ris:neuradPrinciple}
 \end{figure}
 
-Measuring time difference of the signals from the opposite MAPMT channels of one fiber allows to determine the coordinate of the first hit and longitudinal interaction coordinate along the fiber. The accuracy of determining the longitudinal coordinate of interaction depends on the time resolution of the detector which is one of the significant characteristics of the detector. %Time resolution is the accuracy of determining the time of interaction of a particle with the detector	.
-For example, in order to obtain 19\,cm position resolution one has to have time-uncertainty down to 1\,ns. Also it is important to define exactly the first neutron hit. This information allows to discriminate multi-neutron events from the multiple hits of a single re-scattered neutron (neutron cross-talk).
+The accuracy of determining the longitudinal coordinate of interaction depends on the time resolution of the detector which is one of the significant characteristics of the NeuRad. %Time resolution is the accuracy of determining the time of interaction of a particle with the detector	.
+For example, in order to obtain 20\,cm position resolution one has to have time-uncertainty down to 1\,ns. Also it is important to define exactly the first neutron hit. This information allows to discriminate multi-neutron events from the multiple hits of a single re-scattered neutron.
 \section{Measurements}
 The first test aimed to obtain timing characteristics of NeuRad detector was conducted in December 2016 in Flerov Laboratory of Nuclear Reactions JINR, Dubna. For this tests the NeuRad prototype was used. The sensitive part of this prototype was a beam of 256 optical fibers made of scintillator plastic BCF-12. Each fiber was  3$\times$3 mm$^2$ in cross section and 25\,cm long. 
 \begin{figure}[h]
@@ -118,7 +136,7 @@ At the Fig.\ref{ris:tausim} the distribution of the time difference of the signa
 	\caption{The time difference distribution for experimental (blue) and simulation data (red). For obtaining time of the signal the leading edge algorithm was used.}\label{ris:tausim}
 \end{figure}
 
-Fig.\ref{ris:tausim} shows that for experimental data the obtained time resolution of the NeuRad prototype is 2.8\,ns. This time resolution corresponds to 53.2\,cm coordinate resolution. For simulation data the time resolution is 2.2\,ns which provides 41.8\,cm coordinate resolution.  
+Fig.\ref{ris:tausim} shows that for experimental data the obtained time resolution of the NeuRad prototype is 2.8\,ns. This time resolution corresponds to 56\,cm coordinate resolution. For simulation data the time resolution is 2.2\,ns which provides 44\,cm coordinate resolution.  
 
 %Fig.\ref{ris:ampsim} shows the amplitude-time correlations for the simulated and experimental data at the left and right parts respectively.
 
@@ -132,7 +150,7 @@ Fig.\ref{ris:tausim} shows that for experimental data the obtained time resoluti
 In the work the measurements of the time properties of the prototype of the neutron detector NeuRad were conducted.
 Data processing algorithms for the detector were developed and implemented into the developing framework \er.
 
-The time resolution of the prototype turned out to be 2.8\,ns which corresponds to 53.2\,cm of coordinate resolution.
+The time resolution of the prototype turned out to be 2.8\,ns which corresponds to 56\,cm of coordinate resolution.
 
 All measurements were simulated using \er. It was found that the simulation results are in good agreement with the experimental. It confirms that options \er\, allows to simulate experiments with whole NeuRad detector.
 Therefore, the results of this work are very important contribution to the development of the EXPERT project.
