@@ -73,9 +73,15 @@ This paper is dedicated to tests of a prototype of the NeuRad detector time prop
 \section{NeuRad}
 Neutron detector NeuRad is aimed at providing precise information on angular correlations between nuclear-decay neutrons emitted from decay and heavy ion fragment which will be identified by Super-FRS beam diagnostic system. An information on angular correlations will be used to determine the decay energy of the precursor and its lifetime. Trajectories of a heavy ion and neutrons will be reconstructed by an array of $\mu$Si detectors and NeuRad detector respectively. %The trajectories of neutrons will be reconstructed from the data obtained by NeuRad.  %This number is determined by the low transfer momentum of the decay with energies expected in the range of 0.1-100 keV.  
 NeuRad will be constructed from a large number of scintillating fibers ($\approx$10000 units). Each fiber will have a square cross section of 3$\times$3 mm$^2$ and the length of 1 m. Scintillating fibers will be grouped into bundles. 
-The neutrons penetrating the detector will be mostly elastically scattered by protons. In such a case recoil proton will produce an ionization followed by a scintillation flash inside the fiber. The light emitted within the full reflection angle travels to the MAPTs located at both ends of the fiber.
+The neutrons penetrating the detector will be mostly elastically scattered on protons. In such a case recoil proton will produce a scintillation flash inside the fiber. The light emitted within the full reflection angle travels to the MAPTs located at both ends of the fiber.
 MAPMTs will be attached to the NeuRad so that the area of each pixel corresponding to its anode completely overlaps the cross section of one fiber.
-The neutrons penetrating the detector will be mostly elastically scattered by protons. In such a case recoil proton will produce an ionization followed by a scintillation flash inside the fiber. The light emitted within the full reflection angle travels to the MAPTs located at both ends of the fiber.
+%The neutrons penetrating the detector will be mostly elastically scattered by protons. In such a case recoil proton will produce an ionization followed by a scintillation flash inside the fiber. The light emitted within the full reflection angle travels to the MAPTs located at both ends of the fiber.
+
+\begin{figure}[h]
+	\center{\includegraphics[width=1\linewidth]{neurad.png}}
+	\caption{Illustration of the operational principle of NeuRad detector}
+	\label{ris:neuradPrinciple}
+\end{figure}
 
 During the experiments NeuRad will be placed in 28 meters from secondary target so that the fibers will be oriented along the beam direction, see Fig.\ref{ris:neuradPrinciple}.
 Thus, the neutron beam will pass through the photomultiplier before penetrating into the detector.
@@ -84,11 +90,7 @@ And the longitudinal coordinate will be determined by measuring the time differe
 
 This is planned in order to provide sufficient efficiency of the detection and fine position resolution for neutrons with energies in lab system about 200-800 MeV.
 With such a configuration the total angular acceptance of the detector will be about 12 mrad.
-\begin{figure}[h]
-	\center{\includegraphics[width=1\linewidth]{neurad.png}}
-	\caption{Illustration of the operational principle of NeuRad detector}
-	\label{ris:neuradPrinciple}
-\end{figure}
+
 
 The accuracy of determining the longitudinal coordinate of interaction depends on the time resolution of the detector which is one of the significant characteristics of the NeuRad. %Time resolution is the accuracy of determining the time of interaction of a particle with the detector	.
 For example, in order to obtain 20\,cm position resolution one has to have time-uncertainty down to 1\,ns. Also it is important to define exactly the first neutron hit. This information allows to discriminate multi-neutron events from the multiple hits of a single re-scattered neutron.
@@ -119,12 +121,13 @@ That's why such parameters as de-excitation scintillator time, quantum efficienc
 The \er\, options allow to create any shape of detector model and fill in with any material. Created model of the experimental setup described above is showed in Fig.\ref{ris:sim}. 
 
 Methods of the \er\, allowed to get data of the same format as in experiment. 
-A lot of data processing methods were implemented into \er. For example well-known method of obtaining signal time Constant Fraction Discriminator (CFD) and Leading Edge Discriminator (LED) \cite{diplom}.
+A lot of data processing methods were implemented into \er, for example well-known methods of obtaining signal time Constant Fraction Discriminator (CFD) and Leading Edge Discriminator (LED) \cite{diplom}.
 The main advantage of using \er\, for data processing is a possibility to add any new processing algorithms the framework at any time. 
 Implemented algorithms allowed to get such time and amplitude properties of the signal as rising time, Time-over-Threshold (ToT), charge and others. 
 As the gamma beam was collimated the time resolution was calculated as a Full Width at Half Maximum (FWHM) of the distribution of the difference of the signal times from the opposite sides of the selected fiber. 
 
 \section{Results}
+
 The shapes of the signals obtained in the measurements and simulations were similar. 
 The most successful method for calculation the time resolution was LED with selecting events by ToT.
 
@@ -147,6 +150,7 @@ Fig.\ref{ris:tausim} shows that for experimental data the obtained time resoluti
 %\end{figure}
 
 \section{Conclusion}
+
 In the work the measurements of the time properties of the prototype of the neutron detector NeuRad were conducted.
 Data processing algorithms for the detector were developed and implemented into the developing framework \er.
 
