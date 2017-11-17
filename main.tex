@@ -40,7 +40,7 @@ Studying exotic nuclei is one of the most important fields in modern nuclear phy
 %in the most-remote parts of the nuclear landscape which are characterized by the two borders between bound and un-bound nuclide (i.e. nuclear landscape beyond the proton and neutron drip-lines). 
 %These experiments will use the first half of the Super-FRS as a radioactive beam separator and its second half as a high-resolution spectrometer. The exotic nuclei of interest will be produced in the middle focal plane of the Super-FRS. They are expected to decay in flight, and outgoing fragments (i.e., precursor-like decay products) will be tracked and then identified by the spectrometer part.
 
-These modules are:
+
 %\begin{enumerate}
 %	\item Radiation-hard silicon strip detector (SSD). %These compact and universal beam detectors of the Super-FRS provide information on	time-of-flight, position and energy loss of ions, and it will be used for tracking of the secondary beam impinging the secondary target.
 %	\item Microstrip silicon ($\mu$Si) tracking detectors. %These detectors are essential for applications of	tracking technique for studying of the radioactive decays-in-flight and providing information on trajectories of all charged decay products, which is sufficient for determination of half-life values in 	the range of 1 ps – 100 ns, as well as on decay energies and angular correlations of decay products.
@@ -50,60 +50,65 @@ These modules are:
 %\end{enumerate}
 
 %paraenum clелать другой
-\begin{inparadesc}
-	\item[1] Radiation-hard silicon strip detector (SSD).
-	\item[2] Microstrip silicon ($\mu$Si) tracking detectors.
-	\item[3] The gamma-ray and light particles detector system GADAST (Gamma-ray Detectors Around Secondary Target).
-	\item[4]  The OTPC (Optical Time Projection Chamber) for radioactivity studies by the implantation-decay method.
-	\item[5]	The NeuRad (Neutron Radioactivity) fine-resolution detector of neutrons.
-\end{inparadesc}
+%\begin{inparadesc}
+%	\item[1] Radiation-hard silicon strip detector (SSD).
+%	\item[2] Microstrip silicon ($\mu$Si) tracking detectors.
+%	\item[3] The gamma-ray and light particles detector system GADAST (Gamma-ray Detectors Around Secondary Target).
+%	\item[4]  The OTPC (Optical Time Projection Chamber) for radioactivity studies by the implantation-decay method.
+%	\item[5]	The NeuRad (Neutron Radioactivity) fine-resolution detector of neutrons.
+%\end{inparadesc}
 
-\begin{tasks}(2)
-	\task Radiation-hard silicon strip detector (SSD).
-	\task Microstrip silicon ($\mu$Si) tracking detectors.
-	\task The gamma-ray and light particles detector system GADAST (GAmma-ray Detectors Around Secondary Target).
-	\task The OTPC (Optical Time Projection Chamber) for radioactivity studies by the implantation-decay method.
-	\task The NeuRad (Neutron Radioactivity) fine-resolution detector of neutrons.
-\end{tasks}
+These modules are:
+\begin{inparaenum}[(i)]
+	\item Radiation-hard silicon strip detector (SSD).
+	\item Microstrip silicon ($\mu$Si) tracking detectors.
+	\item The gamma-ray and light particles detector system GADAST (GAmma-ray Detectors Around Secondary Target).
+	\item The OTPC (Optical Time Projection Chamber) for radioactivity studies by the implantation-decay method.
+	\item The NeuRad (Neutron Radioactivity) fine-resolution detector of neutrons.
+\end{inparaenum}
 
 Additional important part of the EXPERT project is a framework for simulations of the experiments and processing of experimental data. For this purpose a framework EXPERTroot \cite{er} has been developed. %EXPERTroot is a framework for Monte-Carlo simulations of detector responses, event reconstruction and EXPERT experiment analysis.
 
 This paper is dedicated to tests of a prototype of the NeuRad detector time properties and development of the EXPERTroot.
 
-\section{NeuRad}
+\section{Test of NeuRad timing properties}
 Neutron detector NeuRad is aimed at providing precise information on angular correlations between nuclear-decay neutrons emitted from decay and heavy ion fragment which will be identified by Super-FRS beam diagnostic system. An information on angular correlations will be used to determine the decay energy of the precursor and its lifetime. Trajectories of a heavy ion and neutrons will be reconstructed by an array of $\mu$Si detectors and NeuRad detector respectively. %The trajectories of neutrons will be reconstructed from the data obtained by NeuRad.  %This number is determined by the low transfer momentum of the decay with energies expected in the range of 0.1-100 keV.  
-NeuRad will be constructed from a large number of scintillating fibers ($\approx$10000 units). Each fiber will have a square cross section of 3$\times$3 mm$^2$ and the length of 1 m. Scintillating fibers will be grouped into bundles. 
-The neutrons penetrating the detector will be mostly elastically scattered on protons. In such a case recoil proton will produce a scintillation flash inside the fiber. The light emitted within the full reflection angle travels to the MAPTs located at both ends of the fiber.
-MAPMTs will be attached to the NeuRad so that the area of each pixel corresponding to its anode completely overlaps the cross section of one fiber.
-%The neutrons penetrating the detector will be mostly elastically scattered by protons. In such a case recoil proton will produce an ionization followed by a scintillation flash inside the fiber. The light emitted within the full reflection angle travels to the MAPTs located at both ends of the fiber.
+NeuRad will be constructed from a large number of scintillating fibers ($\approx$10000 units). Each fiber will have a square cross section of 3$\times$3\,mm$^2$ and the length of 1\,m. Scintillating fibers will be grouped into bundles. 
+The neutrons penetrating the detector will be mostly elastically scattered on protons (approximately 10\% of neutrons will be scattered on the carbon nuclei). In such a case recoil proton will produce a scintillation flash inside the fiber. The light emitted within the full reflection angle travels to the multi-anode photomultiplier tubes (MAPMT) located at the both ends of the fiber.
+MAPMT's will be mounted to the bundles so that the area of each pixel corresponding to its anode will completely overlap the frontal surface of one fiber.
 
 \begin{figure}[h]
 	\center{\includegraphics[width=1\linewidth]{neurad.png}}
-	\caption{Illustration of the operational principle of NeuRad detector}
+	\caption{Illustration of the operational principle of the NeuRad detector. Each scintillating fiber will be coupled to one anode of the MAPMT. The neutron beam will penetrate through the frontal MAPMT's.}
 	\label{ris:neuradPrinciple}
 \end{figure}
 
-During the experiments NeuRad will be placed in 28 meters from secondary target so that the fibers will be oriented along the beam direction, see Fig.\ref{ris:neuradPrinciple}.
-Thus, the neutron beam will pass through the photomultiplier before penetrating into the detector.
-Two transverse to the direction of the beam coordinates of the neutron interaction with the detector material will be obtained by determination of the fiber number in which the scattering would be occurred.
-And the longitudinal coordinate will be determined by measuring the time difference of the signals from two MAPTs located on opposite sides of the detector.
+In the course of planned experiments, NeuRad will be placed in 28 meters from secondary target so that the fibers will be oriented along the beam direction, see Fig.\ref{ris:neuradPrinciple}.
+This is planned in order to provide sufficient efficiency of the detection and fine position resolution for neutrons with energies in lab system about $200-800$\,MeV.
+With such a configuration the total angular acceptance of the detector will be about 12\,mrad.
+Thus, the neutron beam will pass through the photomultiplier tubes before penetrating into the sensitive scintillating material.
+Two coordinates, transverse to the direction of the beam, of the neutron interaction with the scintillating material will be obtained from the number of the fired fibers in which the scattering would be occurred.
+The longitudinal coordinate will be determined from measurement of the time difference of the signals from two MAPT's located on the opposite sides of the detector.
+The accuracy of determining the longitudinal coordinate of the interaction depends on the time resolution of the detector which is one of the significant characteristics of the intended NeuRad device.
+%Time resolution is the accuracy of determining the time of interaction of a particle with the detector	.
+For example, in order to obtain 20\,cm position resolution one has to ensure time-uncertainty better than 1\,ns.
+Also it is important to define exactly the first neutron hit and following sequence of the signals induced in the detector material. This information allows to discriminate multi-neutron events from the multiple hits of a single re-scattered neutron.
 
-This is planned in order to provide sufficient efficiency of the detection and fine position resolution for neutrons with energies in lab system about 200-800 MeV.
-With such a configuration the total angular acceptance of the detector will be about 12 mrad.
+%\section{Measurements}
+
+The first investigation aimed to obtain timing characteristics of NeuRad detector was conducted recently in Flerov Laboratory of Nuclear Reactions JINR, Dubna. The NeuRad prototype was used for these test measurements. The sensitive part of the prototype was a bundle of 256 optical fibers made of scintillator plastic BCF-12. Each fiber was  3$\times$3\,mm$^2$ in cross section and 25\,cm long.
+Two MAPMT's Hamamatsu H9500 were mounted to both sides of the bundle.
 
 
-The accuracy of determining the longitudinal coordinate of interaction depends on the time resolution of the detector which is one of the significant characteristics of the NeuRad. %Time resolution is the accuracy of determining the time of interaction of a particle with the detector	.
-For example, in order to obtain 20\,cm position resolution one has to have time-uncertainty down to 1\,ns. Also it is important to define exactly the first neutron hit. This information allows to discriminate multi-neutron events from the multiple hits of a single re-scattered neutron.
-\section{Measurements}
-The first test aimed to obtain timing characteristics of NeuRad detector was conducted in December 2016 in Flerov Laboratory of Nuclear Reactions JINR, Dubna. For this tests the NeuRad prototype was used. The sensitive part of this prototype was a beam of 256 optical fibers made of scintillator plastic BCF-12. Each fiber was  3$\times$3 mm$^2$ in cross section and 25\,cm long. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\linewidth]{NeuRadexperiment.png}
-	\captionof{figure}{NeuRad measurements scheme}
+	\captionof{figure}{NeuRad measurements scheme. The prototype was irradiated by standart gamma source $^{60}$Co. The beam was focused at the geometrical center of the bundle and signals were collected by couple of H9500 MAPMT's.}
 	\label{ris:neuradexp}
 \end{figure}
 
-This prototype was irradiated by collimated gamma beam with energy $E^{(1)}_{\gamma}$=1173\,keV and $E^{(2)}_{\gamma}$=1333\,keV emitted by $^{60}$Co as it showed at Fig.\ref{ris:neuradexp}. Beam was collimated at the middle of the prototype. Two MAPMTs HAMAMATSU9500 were used as a photodetectors. Obtained signals from PMTs were digitized by oscilloscope Tektronix\,MSO7354 and DRS4 evaluation board.
+This prototype was irradiated by collimated gamma beam with energies $E^{(1)}_{\gamma}$=1173\,keV and $E^{(2)}_{\gamma}$=1333\,keV emitted by $^{60}$Co as showed in Fig.~\ref{ris:neuradexp}. The beam was focused at the middle of the prototype. Signals obtained from MAPMT's was collected by the Tektronix oscilloscope MSO7354 and DRS4 evaluation board and its form was saved in binary file for each event.
+
 \section{Simulations and data processing in EXPERTroot}
 Conducted measurements were simulated in \er. For this purpose implemented into \er\, method of simulating detector response was used.
 %For simulations the conducted measurements method of simulation of the detector response \cite{diplom} was used. 
@@ -159,7 +164,11 @@ The time resolution of the prototype turned out to be 2.8\,ns which corresponds 
 All measurements were simulated using \er. It was found that the simulation results are in good agreement with the experimental. It confirms that options \er\, allows to simulate experiments with whole NeuRad detector.
 Therefore, the results of this work are very important contribution to the development of the EXPERT project.
 
-\begin{thebibliography}{999}
+\section{Acknowledgement}
+	
+	RNF grant, LM and LTT grant, ICRF?
+
+\begin{thebibliography}{99}
 	
 	\bibitem{diplom} SUPERFRS
 	
