@@ -13,17 +13,25 @@
 \begin{document}
 \title{Studies of the time properties of the NeuRad detector}
 
-\author{\firstname{Ivan} \lastname{Muzalevsky}\inst{1,3}\fnsep\thanks{\email{ivanmuzalevskij@gmail.com}} \and
-	\firstname{Vratislav} \lastname{Chudoba}\inst{1,2}\fnsep\thanks{\email{chudoba@jinr.ru}} \and
-	\firstname{Third author} \lastname{Third author}\inst{3}\fnsep\thanks{\email{Mail address for last
-			author if necessary}}
+\author{\firstname{I.} \lastname{Muzalevsky}\inst{1,2,3}\fnsep\thanks{\email{ivanmuzalevskij@gmail.com}} \and
+	\firstname{V.} \lastname{Chudoba}\inst{1,2}\fnsep\thanks{\email{chudoba@jinr.ru}} \and
+	\firstname{A.} \lastname{Bezbakh}\inst{1} \and
+	\firstname{I.} \lastname{Mukha}\inst{4} \and
+	\firstname{O.} \lastname{Kiselev}\inst{4} \and
+	\firstname{A.} \lastname{Fomichev}\inst{1} \and
+	\firstname{S.} \lastname{Krupko}\inst{1} \and
+	\firstname{D.} \lastname{Kostyleva}\inst{4} \and
+	\firstname{A.} \lastname{Gorshkov}\inst{1} for the EXPERT project.
 	% etc.
 }
-\institute{FLNR JINR Dubna, Russia; 
+\institute{
+	FLNR JINR Dubna, Russia; 
 	\and
 	Silesian University in Opava, Czech Republic;
 	\and
-	Dubna State University, Russia
+	Dubna State University, Russia;
+	\and
+	GSI Helmholtzzentrum, Darmstadt
 }
 \abstract{%
 	\color{red}
@@ -110,11 +118,10 @@ Two MAPMT's Hamamatsu H9500 were mounted to both sides of the bundle.
 This prototype was irradiated by collimated gamma beam with energies $E^{(1)}_{\gamma}$=1173\,keV and $E^{(2)}_{\gamma}$=1333\,keV emitted by $^{60}$Co as showed in Fig.~\ref{ris:neuradexp}. The beam was focused at the middle of the prototype. Signals obtained from MAPMT's was collected by the Tektronix oscilloscope MSO7354 and DRS4 evaluation board and its form was saved in binary file for each event.
 
 \section{Simulations and data processing in EXPERTroot}
-Conducted measurements were simulated in \er. For this purpose implemented into \er\, method of simulating detector response was used.
-%For simulations the conducted measurements method of simulation of the detector response \cite{diplom} was used. 
-This method allows to get the shape of the signals at the MAPMT anodes from all energy releases of all fibers in the selected event. The MAPMT anode signal is calculated as a sum of the single photoelectron signals. 
-In order to obtain plausible data all the physical effects occurring during the experiment are taken into account in simulations.
-That's why such parameters as de-excitation scintillator time, quantum efficiency of the photocathode, the amplitude of the single electron signal, and others were calculated by analyzing of the experimental data or taken from used devices documentation.
+All conducted measurements were simulated in \er. For all simulations in \er\, method of simulating detector response \cite{er} is used.
+
+The first step in simulation of the experiment was creating a virtual model of the setup described above.
+The \er\, options allow to create any shape of detector model and fill in with any material. Created model of the experimental setup is showed in Fig.\ref{ris:sim}. 
 
 \begin{figure}
 	\centering
@@ -123,14 +130,22 @@ That's why such parameters as de-excitation scintillator time, quantum efficienc
 	\label{ris:sim}
 \end{figure}
 
-The \er\, options allow to create any shape of detector model and fill in with any material. Created model of the experimental setup described above is showed in Fig.\ref{ris:sim}. 
+The second step is transportation of the particles through the volume of the detector and obtaining of energy deposits of the particles at each step. This procedure is performing by well-known software GEANT4. And the last step of the simulation is the converting of energy deposits into detector signals.
+In order to obtain plausible data all the physical effects occurring during the experiment were taken into account in simulations.
+That's why such parameters as de-excitation scintillator time, quantum efficiency of the photocathode, the amplitude of the single electron signal, and others were calculated by analyzing of the experimental data or taken from used devices documentation.
+%For simulations the conducted measurements method of simulation of the detector response \cite{diplom} was used. 
 
-Methods of the \er\, allowed to get data of the same format as in experiment. 
-A lot of data processing methods were implemented into \er, for example well-known methods of obtaining signal time Constant Fraction Discriminator (CFD) and Leading Edge Discriminator (LED) \cite{diplom}.
+This method allowed to get the shape of the signals at the MAPMT anodes from all energy deposits of all NeuRad prototype fibers in the selected event. The MAPMT anode signal was calculated as a sum of the single photoelectron signals. 
+
+A lot of data processing methods were developed and implemented into \er, for example well-known methods of obtaining signal time Constant Fraction Discriminator (CFD) and Leading Edge Discriminator (LED) \cite{diplom}.
 The main advantage of using \er\, for data processing is a possibility to add any new processing algorithms the framework at any time. 
-Implemented algorithms allowed to get such time and amplitude properties of the signal as rising time, Time-over-Threshold (ToT), charge and others. 
-As the gamma beam was collimated the time resolution was calculated as a Full Width at Half Maximum (FWHM) of the distribution of the difference of the signal times from the opposite sides of the selected fiber. 
+Implemented algorithms allowed to get such time and amplitude properties of the signal as rising time, Time-over-Threshold (ToT), anode charge and others. 
 
+Methods of the \er\, allowed to get data from simulations of the same format as in experiment. That's why the same data processing algorithms were used for simulation and experimental data.
+
+\color{red}
+As the gamma beam was collimated the time resolution was calculated as a Full Width at Half Maximum (FWHM) of the distribution of the difference of the signal times from the opposite sides of the selected fiber. 
+\color{black}
 \section{Results}
 
 The shapes of the signals obtained in the measurements and simulations were similar. 
@@ -164,11 +179,10 @@ The time resolution of the prototype turned out to be 2.8\,ns which corresponds 
 All measurements were simulated using \er. It was found that the simulation results are in good agreement with the experimental. It confirms that options \er\, allows to simulate experiments with whole NeuRad detector.
 Therefore, the results of this work are very important contribution to the development of the EXPERT project.
 
-\section{Acknowledgement}
-	
-	RNF grant, LM and LTT grant, ICRF?
+\section{Acknowledgement}	
+RNF grant, LM and LTT grant, ICRF?
 
-\begin{thebibliography}{99}
+\begin{thebibliography}{999}
 	
 	\bibitem{diplom} SUPERFRS
 	
@@ -176,8 +190,13 @@ Therefore, the results of this work are very important contribution to the devel
 	Geissel, H., Kiselev, O., Mukha, I., et al., "Expert (exotic Particle Emission and Radioactivity by Tracking) Studies at the Super-Frs Spectrometer", 2015, Exotic Nuclei: EXON-2014 - Proceedings of International Symposium.
 	
 	\bibitem{er}
-	Official website of the EXPERTroot: 
 	http://er.jinr.ru/
+	
+	\bibitem{hm} 
+	www.hamamatsu.com/
+	
+	\bibitem{crystals} 
+	https://www.crystals.saint-gobain.com/
 	
 \end{thebibliography}
 
