@@ -120,35 +120,52 @@ This prototype was irradiated by collimated gamma beam with energies $E^{(1)}_{\
 \section{Simulations and data processing in EXPERTroot}
 All conducted measurements were simulated in \er. For all simulations in \er\, method of simulating detector response \cite{er} is used.
 
-The first step in simulation of the experiment was creating a virtual model of the setup described above.
-The \er\, options allow to create any shape of detector model and fill in with any material. Created model of the experimental setup is showed in Fig.\ref{ris:sim}. 
+The first step of this method is creating a virtual model of the setup described above.
+The \er\, options allow to create any shape of detector model and fill in with any material. Constructed virtual model of the experimental setup is showed in Fig.\ref{ris:sim}a). 
 
-\begin{figure}
-	\centering
-	\includegraphics[width=\linewidth]{sim.png}
-	\captionof{figure}{Simulations in  \er. Detector, collimator and PMT is depicted in blue, red and yellow colors respectively. The trajectory of the gamma particle is colored in black.}
-	\label{ris:sim}
+\begin{figure} 
+	\begin{minipage}[h]{\linewidth} 
+		\center{\includegraphics[width=1\linewidth]{sim.png}} a) \\ 
+	\end{minipage} 
+	\vfill 
+	\begin{minipage}[h]{0.47\linewidth} 
+		\center{\includegraphics[width=1\linewidth]{simSignal1.png}} b) \\
+	\end{minipage} 
+	\hfill 
+	\begin{minipage}[h]{0.47\linewidth} 
+		\center{\includegraphics[width=1\linewidth]{originalsignalform.png}} c) \\ 
+	\end{minipage} 
+	\caption{a) Simulations in \er. Detector, collimator and PMT is depicted in blue, red and yellow colors respectively. The trajectory of the gamma particle is colored in black. b) Typical MAPMT anode output signal form obtained by simulation. c) Typical signal form obtained in measurements.} 
+	\label{ris:sim} 
 \end{figure}
 
-The second step is transportation of the particles through the volume of the detector and obtaining of energy deposits of the particles at each step. This procedure is performing by well-known software GEANT4. And the last step of the simulation is the converting of energy deposits into detector signals.
-In order to obtain plausible data all the physical effects occurring during the experiment were taken into account in simulations.
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=\linewidth]{sim.png}
+%	\captionof{figure}{Simulations in  \er. Detector, collimator and PMT is depicted in blue, red and yellow colors respectively. The trajectory of the gamma particle is colored in black.}
+%	\label{ris:sim}
+%\end{figure}
+
+\color{red}The second step is transportation of the particles through the volume of the detector and obtaining energy deposits of the particles at each step.\color{black} This procedure is performing by well-known software GEANT4. And the last step of the simulation is converting of the energy deposits into detector signals.
+In order to obtain plausible data all physical effects occurring in the experiment except electronics noise were taken into account in simulations.
 That's why such parameters as de-excitation scintillator time, quantum efficiency of the photocathode, the amplitude of the single electron signal, and others were calculated by analyzing of the experimental data or taken from used devices documentation.
 %For simulations the conducted measurements method of simulation of the detector response \cite{diplom} was used. 
 
-This method allowed to get the shape of the signals at the MAPMT anodes from all energy deposits of all NeuRad prototype fibers in the selected event. The MAPMT anode signal was calculated as a sum of the single photoelectron signals. 
+The method of simulating detector response allowed to get the shape of the signals at the MAPMT anodes from all energy deposits of all NeuRad prototype fibers in the selected event. The MAPMT anode signal was calculated as a sum of the single photoelectron signals. Typical signal form obtained in simulations and measurements is shown in Fig.\ref{ris:sim}b) and Fig.\ref{ris:sim}c) respectively.
 
+The \er\, was used not only for simulations of the measurements but also for processing of the obtained data.
 A lot of data processing methods were developed and implemented into \er, for example well-known methods of obtaining signal time Constant Fraction Discriminator (CFD) and Leading Edge Discriminator (LED) \cite{diplom}.
-The main advantage of using \er\, for data processing is a possibility to add any new processing algorithms the framework at any time. 
+The main advantage of using \er\, for data processing is a possibility to add any new processing algorithms to the framework at any time. 
 Implemented algorithms allowed to get such time and amplitude properties of the signal as rising time, Time-over-Threshold (ToT), anode charge and others. 
-
-Methods of the \er\, allowed to get data from simulations of the same format as in experiment. That's why the same data processing algorithms were used for simulation and experimental data.
+Methods of the \er\, allowed to get data from simulations of the same format as in experiment. That's why the same algorithms were used for simulation and experimental data.
 
 \color{red}
 As the gamma beam was collimated the time resolution was calculated as a Full Width at Half Maximum (FWHM) of the distribution of the difference of the signal times from the opposite sides of the selected fiber. 
 \color{black}
+
 \section{Results}
 
-The shapes of the signals obtained in the measurements and simulations were similar. 
+The shapes of the signals obtained in the measurements and simulations were similar, see Fig.\ref{ris:sim} b),c). 
 The most successful method for calculation the time resolution was LED with selecting events by ToT.
 
 At the Fig.\ref{ris:tausim} the distribution of the time difference of the signals from the opposite sides of one fiber is showed. Distribution obtained from experimental and simulated data colored in blue and red respectively.
