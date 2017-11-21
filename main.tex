@@ -22,6 +22,7 @@
 	\firstname{O.} \lastname{Kiselev}\inst{4} \and
 	\firstname{A.} \lastname{Fomichev}\inst{1} \and
 	\firstname{S.} \lastname{Krupko}\inst{1} \and
+	\firstname{R.} \lastname{Slepnev}\inst{1} \and
 	\firstname{D.} \lastname{Kostyleva}\inst{4} \and
 	\firstname{A.} \lastname{Gorshkov}\inst{1} \ for the EXPERT project.
 	% etc.
@@ -111,7 +112,7 @@ Virtual model of the experimental setup is showed in Fig.\ref{ris:sim}a).
 	
 	\begin{figure} 
 		\begin{minipage}[h]{\linewidth} 
-			\center{\includegraphics[width=1\linewidth]{sim.png}} a) \\ 
+			\center{\includegraphics[width=0.9\linewidth]{sim.png}} a) \\ 
 		\end{minipage} 
 		\vfill 
 		\begin{minipage}[h]{0.47\linewidth} 
@@ -121,49 +122,42 @@ Virtual model of the experimental setup is showed in Fig.\ref{ris:sim}a).
 		\begin{minipage}[h]{0.47\linewidth} 
 			\center{\includegraphics[width=1\linewidth]{originalsignalform.png}} c) \\ 
 		\end{minipage} 
-		\caption{a) Simulations in \er. Bundle, collimator and PMT's are depicted in blue, red and yellow colors respectively. The trajectory of the gamma particle is colored in black. b) Typical MAPMT's anode output signal form obtained in simulations c) Typical signal form obtained in measurements.} 
+		\caption{a) Simulations in \er. Bundle and collimator are depicted in blue, red colors respectively. The trajectory of the gamma particle is colored in black. b) Typical MAPMT's anode output signal form obtained in simulations c) Typical signal form obtained in measurements.} 
 		\label{ris:sim} 
 	\end{figure}
-	
-	%\begin{figure}
-	%	\centering
-	%	\includegraphics[width=\linewidth]{sim.png}
-	%	\captionof{figure}{Simulations in  \er. Detector, collimator and PMT is depicted in blue, red and yellow colors respectively. The trajectory of the gamma particle is colored in black.}
-	%	\label{ris:sim}
-	%\end{figure}
-	
-%	\color{red}
-	Then, the transportation of the particles through the volume of the detector was occurred and energy deposits of tracked particles at each step were saved.
-	This procedure was performed using GEANT4 \cite{geant4} methods. Afterwards, the energy deposits were converted into detector responses having identical format with experimental data.
-	In order to obtain plausible data all major physical effects which were occurring in the experiment except electronics noise were taken into account in simulations.
-	Detector characteristics such as de-excitation scintillator time, quantum efficiency of the photocathode, the amplitude of the single electron signal, and others were parametrized in simulations and fitted by analysis of the experimental data.
+Then, the transportation of the particles through the volume of the detector was occurred and energy deposits of tracked particles at each step were saved.
+This procedure was performed using GEANT4 \cite{geant4} methods. Afterwards, the energy deposits were converted into detector responses having identical format with experimental data.
+In order to obtain plausible data all major physical effects which were occurring in the experiment except electronics noise were taken into account in simulations.
+Detector characteristics such as de-excitation scintillator time, quantum efficiency of the photocathode, the amplitude oAcknoledgementf the single electron signal, and others were parametrized in simulations and fitted by analysis of the experimental data.
 	% or taken from used devices documentation.
 	%For simulations the conducted measurements method of simulation of the detector response \cite{diplom} was used. 
-	The MAPMT anode signal was calculated as a sum of the single photoelectron signals.
-	The above describe simulation allowed us to save the signal shapes  from all MAPMT anodes in the selected event.
-	Typical signal forms obtained in simulations and measurements turned out similar and are shown in Fig.\ref{ris:sim}b) and Fig.\ref{ris:sim}c) respectively.
+The MAPMT anode signal was calculated as a sum of the single photoelectron signals.
+The above describe simulation allowed us to save the signal shapes  from all MAPMT anodes in the selected event.
+Typical signal forms obtained in simulations and measurements turned out similar and are shown in Fig.\ref{ris:sim}b) and Fig.\ref{ris:sim}c) respectively.
 	
-	The \er\, was used for processing of the obtained data as well.
-	Several methods of the data processing were developed and implemented into the \er, for example well-known methods of obtaining signal time Constant Fraction Discriminator (CFD) and Leading Edge Discriminator (LED) \cite{diplom}.
+The \er\, was used for processing of the obtained data as well.
+Several methods of the data processing were developed and implemented into the \er, for example well-known methods of obtaining signal time Constant Fraction Discriminator (CFD) and Leading Edge Discriminator (LED) \cite{diplom}.
 %	The main advantage of using \er\, for data processing is a possibility to add any new processing algorithms to the framework at any time.
 	Implemented algorithms allowed us to get such time-to-amplitude properties of the signal as rising time, Time-over-Threshold (ToT), anode charge and others. 
 %	Methods of the \er\, allowed to get data from simulations of the same format as in experiment. That's why the same algorithms were used for simulation and experimental data.
 %	\color{red}
 %	As the gamma beam was collimated 
+
 \begin{wrapfigure}{l}{0.5\linewidth}
 	\includegraphics[width=\linewidth]{tausim.png}
-	\caption{The time difference distribution for experimental (blue) and simulation data (red). For obtaining time of the signal the leading edge algorithm was used.}\label{ris:tausim}
+	\caption{The time difference distribution for experimental (blue) and simulation data (red). For obtaining time of the signal the LED method was used.}\label{ris:tausim}
 \end{wrapfigure}
 	
-	The time resolution of the detector prototype was calculated as a Full Width at Half Maximum (FWHM) of the distribution of the $\Delta \tau$, (difference of collected times from the opposite sides of the selected fiber in the selected event).
+The time resolution of the detector prototype was calculated as a Full Width at Half Maximum (FWHM) of the distribution of the $\Delta \tau$, (difference of collected times from the opposite sides of the selected fiber in the selected event).
 %	\color{black}
 %
 %\section{Results}
 %
 
-	Taking into account the irregular form of the signals, the most successful method for calculation of the time resolution was LED combined with selection selection  by ToT.
-	The distribution of the $\Delta \tau$ values is showed in Fig.\ref{ris:tausim}, where experimental and simulated data are depicted by blue and red color, respectively.
-	The obtained time resolution of the NeuRad prototype is 2.8\,ns for experimental data. It corresponds to accuracy of the longitudinal coordinate determination approximately 56\,cm. For simulations the accuracy of time and the longitudinal determination is 2.2\,ns and 44\,cm respectively.
+
+Taking into account the irregular form of the signals, the most successful method for calculation of the time resolution was LED combined with selection selection  by ToT.
+The distribution of the $\Delta \tau$ values is showed in Fig.\ref{ris:tausim}, where experimental and simulated data are depicted by blue and red color, respectively.
+The obtained time resolution of the NeuRad prototype is 2.8\,ns for experimental data. It corresponds to accuracy of the longitudinal coordinate determination approximately 56\,cm. For simulations the accuracy of time and the longitudinal determination is 2.2\,ns and 44\,cm respectively.
 
 
 	
@@ -192,9 +186,11 @@ Virtual model of the experimental setup is showed in Fig.\ref{ris:sim}a).
 %	All measurements were simulated using \er.
 	It was found that the results of experiment and simulation are in a good agreement and it was confirmed that the \er\ options allow to identify the most important effects affecting the timing properties of the intended NeuRad detector.
 	Therefore, the results of this work are very important contribution to the development of the EXPERT project.
+	
+\section{Acknowledgement}
+This  work was partly supported by Helmholtz Association under grant agreement IK-RU-002, RSF 17-12-01367 grant and MEYS Projects (Czech Republic) LTT17003 and LM2015049.
 
-\section{Acknowledgement}	
-	This  work was partly supported by RSF 17-12-01367 grant, MEYS Projects (Czech Republic) LTT17003 and LM2015049.
+	
 \begin{thebibliography}{99}
 	
 	\bibitem{diplom} 
