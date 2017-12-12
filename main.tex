@@ -24,7 +24,7 @@
 	\firstname{S.} \lastname{Krupko}\inst{1} \and
 	\firstname{R.} \lastname{Slepnev}\inst{1} \and
 	\firstname{D.} \lastname{Kostyleva}\inst{4} \and
-	\firstname{A.} \lastname{Gorshkov}\inst{1} \ for the EXPERT project.
+	\firstname{A.} \lastname{Gorshkov}\inst{1} \ for the EXPERT/Super-FRS Experiment Collaboration
 	% etc.
 }
 \institute{
@@ -39,8 +39,8 @@
 \abstract{%
 %	\color{red}
 	One of the subtopics of the SuperFRS Experiment Collaboration, being part of NUSTAR@FAIR, is investigation of properties of light exotic nuclei using EXPERT setup.
-	One of its modules, the NeuRad detector, will be intended for registration of neutrons emitted from investigated nuclei.
-	Present work is dedicated to investigation of the timing properties of the NeuRad detector prototype. The developed prototype has been investigated. Timing properties of the measured and simulated signals have been determined using digital processing algorithms. Obtained results will allow better understanding of the processes in the scintillator fibers coupled to the multi-anode PMT and designing the readout electronics of the full system.
+	One of its modules, the NeuRad detector, is intended for registration of neutrons emitted by investigated nuclei.
+	Present work is dedicated to investigation of the timing properties of the NeuRad detector prototype. Timing properties of the measured and simulated signals have been determined using digital processing algorithms. Obtained results allow better understanding of the processes in the scintillator fibers coupled to the multi-anode PMT and are an important contribution to the development of readout electronics of the setup.
 }
 %
 \maketitle
@@ -48,36 +48,38 @@
 %\color{red}
 \section{Introduction}
 Properties of exotic nuclei represent one of the most important fields in modern nuclear physics.
-Such uncommon nuclei are characterized by large excess of neutrons or protons and are located far from the line of nuclear stability. As far as binding energy decreases, one may observe the transition from the discrete spectra to nuclear resonances with many overlapping states and, as a consequence, such phenomena as neutron halo, soft mode of dipole excitation and others could be observed. Moreover, new decay channels, including many-body, are becoming open.
+Such uncommon nuclei are characterized by large excess of neutrons or protons and are located far from the nuclear stability. As far as the binding energy decreases, one may observe the transition from the discrete spectra to nuclear resonances with many overlapping states and, as a consequence, such unique phenomena as neutron halo, soft mode of dipole excitation and others could be observed. Moreover, new decay channels, including many-body, are becoming open.
 
 As far as exotic nuclei are unstable one meet a problem how to produce them.
-One of the most developed facility for their production by separation in-flight will be fragment separator Super-FRS at FAIR (Facility for Antiproton and Ion Research) \cite{diplom}. Project EXPERT (EXotic Particle Emission and Radioactivity by Tracking \cite{IMexpert}) dedicated to study of properties of exotic nuclei is a part of program of the Super-FRS Experiment Collaboration. EXPERT setup consists of five modules each of which is intended to detect different decay products.
+One of the most developed facility for their production by separation in-flight will be fragment separator Super-FRS at FAIR (Facility for Antiproton and Ion Research) \cite{diplom}. Project EXPERT (EXotic Particle Emission and Radioactivity by Tracking \cite{IMexpert}) dedicated to study of properties of exotic nuclei is a part of program of the Super-FRS Experiment Collaboration. EXPERT setup consists of five modules each of which is intended to detect different decay products \cite{tdr}.
 These modules may be enumerated as:
 \begin{inparaenum}[(i)]
 	\item Radiation-hard silicon strip detector (SSD) for Time-of-Flight and triggering.
 	\item Microstrip silicon ($\mu$Si) tracking detectors.
 	\item The gamma-ray and light particles detector system GADAST (GAmma-ray Detectors Around Secondary Target).
 	\item The OTPC (Optical Time Projection Chamber) for radioactivity studies by the implantation-decay method.
-	\item The NeuRad (Neutron Radioactivity) fine-resolution detector of neutrons.
+	\item The NeuRad (Neutron Radioactivity) fine-resolution neutron detector.
 \end{inparaenum}
 
-Additional important part of the EXPERT project is a framework for simulations of the experiments and processing of the experimental data. For this purpose a framework EXPERTroot \cite{er} has been developed.
-%EXPERTroot is a framework for Monte-Carlo simulations of detector responses, event reconstruction and EXPERT experiment analysis.
+Additional important part of the EXPERT project is a framework for simulations of the experiments and processing of the experimental data, EXPERTroot \cite{er}. 
+
+%Additional important part of the EXPERT project is a framework for simulations of the experiments and processing of the experimental data. For this purpose a framework EXPERTroot \cite{er} has been developed.
+%%EXPERTroot is a framework for Monte-Carlo simulations of detector responses, event reconstruction and EXPERT experiment analysis.
 This paper is dedicated to exploration of the timing properties of the NeuRad prototype.
-All necessary methods of data processing and simulation were implemented into the EXPERTroot.
+%All necessary methods of data processing and simulation were implemented into the EXPERTroot.
 
 \section{Test of NeuRad timing properties}
-Neutron detector NeuRad is aimed to provide precise information on angular correlations between nuclear-decay neutrons emitted from decay and heavy ion fragment which will be identified by Super-FRS beam diagnostic system. An information on angular correlations will be used to determine decay energy of the precursor and its lifetime. Trajectories of a heavy ion and neutrons will be reconstructed by an array of the $\mu$Si detectors and the NeuRad detector respectively. %The trajectories of neutrons will be reconstructed from the data obtained by NeuRad.  %This number is determined by the low transfer momentum of the decay with energies expected in the range of 0.1-100 keV.  
+Neutron detector NeuRad is aimed to provide precise information on angular correlations between neutrons emitted from decay and heavy ion fragment which will be identified by Super-FRS beam diagnostic system. An information on angular correlations will be used to determine decay energy of the precursor and its lifetime. Trajectories of a heavy ion and neutrons will be reconstructed by an array of the $\mu$Si detectors and the NeuRad detector respectively. %The trajectories of neutrons will be reconstructed from the data obtained by NeuRad.  %This number is determined by the low transfer momentum of the decay with energies expected in the range of 0.1-100 keV.  
 %NeuRad will be constructed from a large number of scintillating fibers (≈10000 units) arranged parallel to the direction of the neutron trajectories
 NeuRad will be constructed from a large number of scintillating fibers ($\approx$10000 units). Each fiber will have a square cross section of 3$\times$3\,mm$^2$ and the length of 1\,m.% Scintillating fibers will be grouped into bundles. 
-Scintillating fibers will be grouped into bundles fitting the photosensors like multi-anode PMT (MAPMT).
-The neutrons penetrating into the bundles will be mostly elastically scattered on protons (approximately 10\% of neutrons will be scattered on the carbon nuclei). In such case recoil proton will induce a scintillation light inside the fiber. 
-The light emitted within the full reflection angle travels to the MAPMT's located at the both ends of the fiber.
+Scintillating fibers will be grouped into bundles fitting the photosensors like multi-anode PMTs (MAPMTs).
+The neutrons penetrating into the bundles will be mostly elastically scattered on protons (about 10\% of neutrons will be scattered on the carbon nuclei). In such case recoil proton will induce a scintillation light inside the fiber. 
+The light emitted within the full reflection angle travels to the MAPMTs located at the both ends of the fiber.
 MAPMT's will be mounted to the bundles so that the area of each pixel corresponding to its anode will completely overlap the frontal surface of one fiber.
 
 \begin{figure}[h]
 	\center{\includegraphics[width=0.8\linewidth]{neurad.png}}
-	\caption{Illustration of the operational principle of the NeuRad detector. Each scintillating fiber will be coupled to one anode of the MAPMT. The neutron beam will penetrate through the frontal MAPMT's.}
+	\caption{Operational principle of the NeuRad detector. Each scintillating fiber will be coupled to one anode of the MAPMT. The neutron beam will penetrate through the frontal MAPMTs.}
 	\label{ris:neuradPrinciple}
 \end{figure}
 
@@ -86,11 +88,11 @@ This is planned in order to provide sufficient efficiency of the detection and f
 With such a configuration the total angular acceptance of the detector will be about 12\,mrad.
 Thus, the neutron beam will pass through the photomultiplier tubes before penetrating into the sensitive scintillating material.
 Two coordinates, transverse to the direction of the beam, of the neutron interaction with the scintillating material will be obtained from the number of the fired fibers in which the scattering would be occurred.
-The longitudinal coordinate will be determined from measurement of the time difference of the signals from two MAPMT's located on the opposite sides of the detector.
+The longitudinal coordinate will be determined from measurement of the time difference of the signals from two MAPMTs located on the opposite sides of the detector. 
 The accuracy of determining the longitudinal coordinate of the interaction depends on time resolution of the detector which is one of the significant characteristics of the intended NeuRad device.
-%Time resolution is the accuracy of determining the time of interaction of a particle with the detector
+Time resolution is a uncertainty of determining the time of the interaction of a particle with the detector.
 %Taking into account complex processes of a neutron scattering and a light propagation in the scintillation fiber, we aim in obtaining time uncertainty better than 1 ns (FWHM) which corresponds to 20 cm position resolution. Nevertheless, somewhat worse time (and thus position resolution) do not prohibit neutron measurements with this detector.
-For example, in order to obtain 20\,cm position resolution one has to ensure time-uncertainty better than 1\,ns.
+For example, in order to obtain 14\,cm position resolution one has to ensure time-uncertainty better than 1\,ns.
 Also it is important to determine exactly the first neutron hit and following sequence of the signals induced in the detector material. This information allows to distinguish multi-neutron events from the multiple hits of a single re-scattered neutron.
 
 %\section{Measurements}
@@ -109,15 +111,15 @@ Each fiber had a cross section of 3$\times$3\,mm$^2$ and a length of 25\,cm. Two
 	\label{ris:neuradexp}
 \end{figure}
 
-This prototype was irradiated by collimated gamma beam with energies $E^{(1)}_{\gamma}$=1173\,keV and $E^{(2)}_{\gamma}$=1333\,keV emitted by $^{60}$Co as showed in Fig.~\ref{ris:neuradexp}. The beam was focused at the geometrical center of the prototype. Signals obtained from the MAPMT's were collected by the Tektronix oscilloscope MSO7354 (8 bit at 10 GS/s) and DRS4 evaluation board (12 bit at 5 GS/s) and their form were saved for each detected event.
+This prototype was irradiated by collimated gamma beam with energies $E^{(1)}_{\gamma}$=1173\,keV and $E^{(2)}_{\gamma}$=1333\,keV emitted by $^{60}$Co as showed in Fig.~\ref{ris:neuradexp}. The beam was focused at the geometrical center of the prototype. Signals obtained from the MAPMTs were collected by the Tektronix oscilloscope MSO7354 (8 bit at 10 GS/s) and DRS4 evaluation board (12 bit at 5 GS/s) and their form were saved for each detected event.
 
-\section{Simulations and data processing in EXPERTroot}
+\section{Simulations and data processing}
 
 All measurements were simulated within the \er\, framework. First, a virtual model of the setup (Fig.\ref{ris:sim}a) was created, following a method of simulating detector response. 
 
 
 %All conducted measurements were simulated in the \er. For all simulations in \er\, method of simulating detector response \cite{er} is used.
-Formation of a virtual model of the setup described above was the first step.
+%Formation of a virtual model of the setup described above was the first step.
 %	The \er\, options allow to create any shape of detector model and fill in with any material.	RNF grant, LM and LTT grant, ICRF?
 %Virtual model of the experimental setup is showed in Fig.\ref{ris:sim}a). 
 	
@@ -133,11 +135,10 @@ Formation of a virtual model of the setup described above was the first step.
 		\begin{minipage}[h]{0.35\linewidth} 
 			\center{\includegraphics[width=1\linewidth]{originalsignalform.png}} c) \\ 
 		\end{minipage} 
-		\caption{a) Simulations in \er. Bundle and collimator are depicted in blue, red colors respectively. The trajectory of the gamma particle is colored in black. b) Typical MAPMT's anode output signal form obtained in simulations c) Typical signal form obtained in measurements.} 
+		\caption{a) Simulations within the \er. Prototype and collimator are depicted in blue, red colors respectively. The trajectory of the gamma particle is colored in black. b) Typical MAPMT's anode output signal form obtained in simulations c) Typical signal form obtained in measurements.} 
 		\label{ris:sim} 
 	\end{figure}
-Then, the transportation of the particles through the volume of the detector was occurred and energy deposits of tracked particles at each step were saved.
-This procedure was performed using GEANT4 \cite{geant4} methods. Afterwards, the energy deposits were converted into detector responses having identical format with experimental data.
+Then, the transportation of the particles through the volume of the detector was performed by GEANT4 \cite{geant4}. Afterwards energy deposits of each step were converted into detector responses having identical format with experimental data.
 In order to obtain plausible data all major physical effects which were occurring in the experiment except electronics noise were taken into account in simulations.
 Detector characteristics such as de-excitation scintillator time, quantum efficiency of the photocathode, the amplitude of the single electron signal, and others were parametrized in simulations and fitted by analysis of the experimental data.
 	% or taken from used devices documentation.
@@ -159,8 +160,8 @@ The same set of programs was used for processing of the measured data as well. S
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.54\linewidth]{tausim.png}
-	\caption{The time difference distribution for experimental (blue) and simulation data (red). For obtaining time of the signal the LED method was used.}\label{ris:tausim}
+	\includegraphics[width=0.6\linewidth]{tausim.png}
+	\caption{The time difference distribution for experimental (blue) and simulation data (red). For obtaining time of the signal the LED method with selection by the ToT was used.}\label{ris:tausim}
 \end{figure}
 	
 The time resolution of the detector prototype was calculated as a Full Width at Half Maximum (FWHM) of the distribution of the $\Delta \tau$, (difference of collected times from the opposite sides of one fiber).
@@ -168,11 +169,11 @@ The time resolution of the detector prototype was calculated as a Full Width at 
 %
 %\section{Results}
 %
-Taking into account the complex form of the signals, the most successful method for calculation of time was LED combined with a selection of the signal wight by the ToT.
+Taking into account the complex form of the signals, the most successful method for calculation of time was LED combined with a signal selection by the ToT.
 %Taking into account the irregular form of the signals, the most successful method for calculation of the time resolution was LED combined with selection selection  by ToT.
 The distribution of the $\Delta \tau$ values is showed in Fig.\ref{ris:tausim}, where experimental and simulated data are depicted by blue and red color, respectively.
 
-The obtained time resolution of the NeuRad prototype using this setup is 2.8\,ns (FWHM). The accuracy of the simulated data is 2.2\,ns (FWHM) which is in reasonable agreement with the measurements, taking into account missing description of the electronic noise. Worse as design value time resolution might be explained by the worse signal-to-noise – neutrons produce much larger signals as the $\gamma$-particles from the $^{60}$Co source. For the readout of the real detector it is planned to use multi-channel amplifier/discriminator ASIC (PETsys Electronics SA) \cite{petsys}. The tests of the NeuRad prototype with this electronics are being started.
+The obtained time resolution of the NeuRad prototype using this setup is 2.8\,ns (FWHM). The accuracy of the simulated data is 2.2\,ns (FWHM) which is in reasonable agreement with the measurements, taking into account missing description of the electronic noise. Worse as design value time resolution might be explained by the worse signal-to-noise – neutrons produce much larger signals as the $\gamma$-particles from the $^{60}$Co source. For the readout of the detector it is planned to use multi-channel amplifier/discriminator ASIC (PETsys Electronics SA) \cite{petsys}. The tests of the NeuRad prototype with this electronics are being started.
 
 %The obtained time resolution of the NeuRad prototype is 2.8\,ns for experimental data. It corresponds to accuracy of the longitudinal coordinate determination approximately 56\,cm. For simulations the accuracy of time and the longitudinal determination is 2.2\,ns and 44\,cm respectively.
 
@@ -195,7 +196,7 @@ The obtained time resolution of the NeuRad prototype using this setup is 2.8\,ns
 
 \section{Conclusion}
 	
-	First small-size prototype of the NeuRad detector was investigated using $gamma$-sources. Signal shapes have been digitized using fast oscilloscope and analog-to-digital converter; timing properties have been determined with specially developed methods of digital pulse processing. Same algorithms have been also used for processing simulated signals. The processing algorithms are implemented into the \er\, software package made for the MC simulations and data analysis of the future experiment with the EXPERT setup. It was found that the results of the tests and simulations are in a good agreement meaning that the most of the features of the detector are well understood. The results of the present work will allow a correct choice of the readout electronics for the final system. Therefore, they are very important contribution to the EXPERT/Super-FRS project.
+	First small-size prototype of the NeuRad detector was investigated using $gamma$-sources. Signal shapes have been digitized using fast oscilloscope and analog-to-digital converter; timing properties have been determined with specially developed methods of digital pulse processing. Same algorithms have been also used for processing simulated signals. The processing algorithms are implemented into the \er\, software package. It was found that the results of the tests and simulations are in a good agreement meaning that the most of the features of the detector are well understood. The results of the present work will allow a correct choice of the readout electronics for the final system. Therefore, they are very important contribution to the EXPERT/Super-FRS project.
 	
 	
 	%Prototype of the NeuRad detector was investigated for the timing properties.
@@ -212,6 +213,9 @@ This  work was partly supported by Helmholtz Association under grant agreement I
 
 	
 \begin{thebibliography}{99}
+	
+	\bibitem{tdr} 
+	Technical Design Report of the EXPERT setup of the Super-FRS Experiment Collaboration, https;//edms.cern.ch/document/1865700
 	
 	\bibitem{diplom} 
 	M. Winkler et al., The status of the Super-FRS in-flight facility at FAIR, Nucl. Instr. and Meth. in Phys. Res. B 266 (2008) 4183.
