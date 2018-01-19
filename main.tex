@@ -98,7 +98,7 @@ Also it is important to determine exactly the first neutron hit and following se
 %\section{Measurements}
 
 The first investigation aimed to obtain timing characteristics of the NeuRad detector was conducted recently in Flerov Laboratory of Nuclear Reactions JINR, Dubna. The NeuRad prototype was used for these test measurements. The sensitive part of the prototype was a bundle of 256 optical fibers made of scintillator plastic BCF-12 \cite{crystals}. 
-Each fiber had a cross section of 3$\times$3\,mm$^2$ and a length of 25\,cm. Two MAPMT's H9500 \cite{hm} were mounted to both sides of the bundle.
+Each fiber had a cross section of 3$\times$3\,mm$^2$ and a length of 25\,cm. Two MAPMTs H9500 \cite{hm} were mounted to both sides of the bundle.
 
 
 
@@ -106,97 +106,59 @@ Each fiber had a cross section of 3$\times$3\,mm$^2$ and a length of 25\,cm. Two
 	\centering
 	\includegraphics[width=0.8\linewidth]{NeuRadexperiment.png}
 	\captionof{figure}{Scheme of measurements with the NeuRad prototype. The prototype was irradiated by a collimated $\gamma$-source $^{60}$Co.
-	The collimator was located at the geometrical center of the bundle and signals were collected by a couple of H9500 MAPMT's.	
+	The gamma rays were focused at the geometrical center of the prototype and signals were collected by a couple of H9500 MAPMTs.	
 }
 	\label{ris:neuradexp}
 \end{figure}
 
-This prototype was irradiated by collimated gamma beam with energies $E^{(1)}_{\gamma}$=1173\,keV and $E^{(2)}_{\gamma}$=1333\,keV emitted by $^{60}$Co as showed in Fig.~\ref{ris:neuradexp}. The beam was focused at the geometrical center of the prototype. Signals obtained from the MAPMTs were collected by the Tektronix oscilloscope MSO7354 (8 bit at 10 GS/s) and DRS4 evaluation board (12 bit at 5 GS/s) and their form were saved for each detected event.
+This prototype was irradiated by collimated gamma beam with energies $E^{(1)}_{\gamma}$=1173\,keV and $E^{(2)}_{\gamma}$=1333\,keV emitted by $^{60}$Co as showed in Fig.~\ref{ris:neuradexp}. The gamma rays were focused at the geometrical center of the prototype. Signals obtained from the MAPMTs were collected by the DRS4 evaluation board (12 bit at 5 GS/s) and their form were saved for each detected event.
+
 
 \section{Simulations and data processing}
 
-All measurements were simulated within the \er\, framework. First, a virtual model of the setup (Fig.\ref{ris:sim}a) was created, following a method of simulating detector response. 
+Simulation and data processing were performed within the \er\, framework.
 
+The geometry shown in the figure (Fig.\ref{ris:sim}a) was used for the MC simulations within the \er. The GEANT4\cite{geant4} classes were used for particle transport through the setup. Then energy deposits were  converted into the MAPMT anode pulses. Every pulse was calculated as a sum of single photoelecton pulses taking into account the following parameters and effects: light output of the scintillating fiber; efficiency of the light trapping into the fiber due to total internal reflection; scintillation decay time; light attenuation along the fiber; light collection increase near the edges of the fiber; light losses at the optical interface; MAPMT quantum efficiency; single photoelectron amplitude spectrum, pulse shape, and spread of the avalanche transition time through the dynode system; cross-talk as a probability of the singлучи были направлены на le photoelecton avalanche developing in the neighboring pixel.
+Certain effects were not taken into account: any dependence of the pulse shape with the amplitude; cross-talk as the charge sharing of a single photoelectron avalanche between two or more anodes; partial collection of light after diffuse scattering at the walls; electronic noises; pulse shape distortion in the readout line. Most of the parameters for the simulations were taken from the data-sheets of the fibers and MAPMT.  Only the single photoelectron pulse shape and light losses at the optical interface were fitted to the experimental data. The simulated pulse shapes had the same format as in the experimental data.
 
-%All conducted measurements were simulated in the \er. For all simulations in \er\, method of simulating detector response \cite{er} is used.
-%Formation of a virtual model of the setup described above was the first step.
-%	The \er\, options allow to create any shape of detector model and fill in with any material.	RNF grant, LM and LTT grant, ICRF?
-%Virtual model of the experimental setup is showed in Fig.\ref{ris:sim}a). 
-	
-	\begin{figure} 
-		\begin{minipage}[h]{0.25\linewidth} 
+Typical signal shapes obtained in simulations and measurements turned out similar and are shown in Fig.\ref{ris:sim}b) and Fig.\ref{ris:sim}c) respectively. There is a clear difference between the simulated and recoded experimental pulses. In the recorded ones one can notice a kind of low-amplitude afterpulses.  Those can be due to several reasons, e.g. stray capacity discharge and influence of the readout line bandwidth, which manifests itself in the damped oscillations caused by the sharp leading edge.
+
+\begin{figure}[h]
+	\begin{minipage}[h]{0.25\linewidth}
 		\center{\includegraphics[width=1\linewidth]{sim.png}} a) \\
-		\end{minipage}
-		\hfill 
-		\begin{minipage}[h]{0.35\linewidth} 
-			\center{\includegraphics[width=1\linewidth]{simSignal1.png}} b) \\
-		\end{minipage} 
-		\hfill 
-		\begin{minipage}[h]{0.35\linewidth} 
-			\center{\includegraphics[width=1\linewidth]{originalsignalform.png}} c) \\ 
-		\end{minipage} 
-		\caption{a) Simulations within the \er. Prototype and collimator are depicted in blue, red colors respectively. The trajectory of the gamma particle is colored in black. b) Typical MAPMT's anode output signal form obtained in simulations c) Typical signal form obtained in measurements.} 
-		\label{ris:sim} 
-	\end{figure}
-Then, the transportation of the particles through the volume of the detector was performed by GEANT4 \cite{geant4}. Afterwards energy deposits of each step were converted into detector responses having identical format with experimental data.
-In order to obtain plausible data all major physical effects which were occurring in the experiment except electronics noise were taken into account in simulations.
-Detector characteristics such as de-excitation scintillator time, quantum efficiency of the photocathode, the amplitude of the single electron signal, and others were parametrized in simulations and fitted by analysis of the experimental data.
-	% or taken from used devices documentation.
-	%For simulations the conducted measurements method of simulation of the detector response \cite{diplom} was used. 
-The MAPMT anode signal was calculated as a sum of the single photoelectron signals.
-The described above simulation allowed  to reproduce the signal shapes from all MAPMT anodes.
-Typical signal forms obtained in simulations and measurements turned out similar and are shown in Fig.\ref{ris:sim}b) and Fig.\ref{ris:sim}c) respectively.
-	
-%The \er\, was used for processing of the obtained data as well.
-%Several methods of the data processing were developed and implemented into the \er, for example well-known methods of obtaining signal time Constant Fraction Discriminator (CFD) and Leading Edge Discriminator (LED) \cite{diplom}.
-
-The same set of programs was used for processing of the measured data as well. Several methods of the data processing were developed and implemented into the \er, for example Constant Fraction Discriminator (CFD) and Leading Edge Discriminator (LED). Implemented algorithms allowed us to get the most important properties of the signal, such as signal time, rise time, Time-over-Threshold (ToT) and charge.
-
-%	The main advantage of using \er\, for data processing is a possibility to add any new processing algorithms to the framework at any time.
-%	Implemented algorithms allowed us to get such time-to-amplitude properties of the signal as rising time, Time-over-Threshold (ToT), anode charge and others. 
-%	Methods of the \er\, allowed to get data from simulations of the same format as in experiment. That's why the same algorithms were used for simulation and experimental data.
-%	\color{red}
-%	As the gamma beam was collimated 
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.6\linewidth]{tausim.png}
-	\caption{The time difference distribution for experimental (blue) and simulation data (red). For obtaining time of the signal the LED method with selection by the ToT was used.}\label{ris:tausim}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[h]{0.35\linewidth}
+		\center{\includegraphics[width=1\linewidth]{simSignal1.png}} b) \\
+	\end{minipage}
+	\hfill
+	\begin{minipage}[h]{0.35\linewidth}
+		\center{\includegraphics[width=1\linewidth]{originalsignalform.png}} c) \\
+	\end{minipage}
+	\caption{a) Simulations within the \er. Prototype and collimator are depicted in blue, red colors respectively. The trajectory of the gamma particle is colored in yellow. b) Typical MAPMT's anode output signal form obtained in simulations c) Typical signal form obtained in measurements.}
+	\label{ris:sim}
 \end{figure}
-	
-The time resolution of the detector prototype was calculated as a Full Width at Half Maximum (FWHM) of the distribution of the $\Delta \tau$, (difference of collected times from the opposite sides of one fiber).
-%	\color{black}
-%
-%\section{Results}
-%
-Taking into account the complex form of the signals, the most successful method for calculation of time was LED combined with a signal selection by the ToT.
-%Taking into account the irregular form of the signals, the most successful method for calculation of the time resolution was LED combined with selection selection  by ToT.
-The distribution of the $\Delta \tau$ values is showed in Fig.\ref{ris:tausim}, where experimental and simulated data are depicted by blue and red color, respectively.
 
-The obtained time resolution of the NeuRad prototype using this setup is 2.8\,ns (FWHM). The accuracy of the simulated data is 2.2\,ns (FWHM) which is in reasonable agreement with the measurements, taking into account missing description of the electronic noise. Worse as design value time resolution might be explained by the worse signal-to-noise – neutrons produce much larger signals as the $\gamma$-particles from the $^{60}$Co source. For the readout of the detector it is planned to use multi-channel amplifier/discriminator ASIC (PETsys Electronics SA) \cite{petsys}. The tests of the NeuRad prototype with this electronics are being started.
+Several algorithms of the data processing were developed and implemented into the \er, for example two discriminators --- Constant Fraction(CFD) and Leading Edge (LED), different event selection filters, alignment and summing up of the pulses, etc. Implemented algorithms allowed us to study the summed pulse and understand qualitatively its basic features. All the algorithms could be applied in the same way to both simulated and experimental data.
 
-%The obtained time resolution of the NeuRad prototype is 2.8\,ns for experimental data. It corresponds to accuracy of the longitudinal coordinate determination approximately 56\,cm. For simulations the accuracy of time and the longitudinal determination is 2.2\,ns and 44\,cm respectively.
+\begin{wrapfigure}{l}{0.5\linewidth}
+	\includegraphics[width=\linewidth]{sum.png}
+	\caption{Summed pulses obtained in the measurements (red) and simulations (blue) in a log scale.}\label{ris:sum}
+\end{wrapfigure}
 
 
-	
-%	\begin{figure}[h]
-%		\centering
-%		\includegraphics[width=0.8\linewidth]{tausim.png}
-%		\caption{The time difference distribution for experimental (blue) and simulation data (red). For obtaining time of the signal the leading edge algorithm was used.}\label{ris:tausim}
-%	\end{figure}
-	
-	
-%Fig.\ref{ris:ampsim} shows the amplitude-time correlations for the simulated and experimental data at the left and right parts respectively.
-
-%begin{figure}	RNF grant, LM and LTT grant, ICRF?
+%\begin{figure}
 %	\centering
-%	\includegraphics[width=\linewidth]{ampsim.png}
-%	\caption{Зависимость $\Delta\tau$ рассчитанное методом дискриминатора переднего фронта от заряда. Слева для моделированных, справа для экспериментальных данных }\label{ris:ampsim}
+%	\includegraphics[width=0.6\linewidth]{sum.png}
+%	\caption{}\label{ris:sum}
 %\end{figure}
+
+In the figure \ref{ris:sum} the simulated and experimental summed pulses are shown. The trigger threshold for the simulated data was set to the ??(fraction?) of the average single photoelectron amplitude. Such a threshold allowed to match the vertical position of the sharp bend in both the pulses. Looking into this figure we are observing the following. The experimental pulse has  the decay profile which includes a fast exponent, faster than the value from the data-sheet, followed by the long non-exponential tail. There is a bump before the exponential decay. This feature is getting more prominent if the light losses at the optical interface go down or cross talks go up.  In order to get the quantitative fitting of the parameters and validation of the Monte Carlo model further measurements are needed. It is necessary to uлучи были направлены на se the readout lines tested for their own performance with a fast laser and to read out bigger number of pixels at the same time in order to study the effects caused by different reasons.
+
 
 \section{Conclusion}
 	
-	First small-size prototype of the NeuRad detector was investigated using $gamma$-sources. Signal shapes have been digitized using fast oscilloscope and analog-to-digital converter; timing properties have been determined with specially developed methods of digital pulse processing. Same algorithms have been also used for processing simulated signals. The processing algorithms are implemented into the \er\, software package. It was found that the results of the tests and simulations are in a good agreement meaning that the most of the features of the detector are well understood. The results of the present work will allow a correct choice of the readout electronics for the final system. Therefore, they are very important contribution to the EXPERT/Super-FRS project.
+	First small-size prototype of the NeuRad detector was investigated using $\gamma$-sources. Signal shapes have been digitized using fast oscilloscope and analog-to-digital converter; timing properties have been determined with specially developed methods of digital pulse processing. Same algorithms have been also used for processing simulated signals. The processing algorithms are implemented into the \er\, software package. It was found that the results of the tests and simulations are in a good agreement meaning that the most of the features of the detector are well understood. The results of the present work will allow a correct choice of the readout electronics for the final system. Therefore, they are very important contribution to the EXPERT/Super-FRS project.
 	
 	
 	%Prototype of the NeuRad detector was investigated for the timing properties.
