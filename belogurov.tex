@@ -12,7 +12,7 @@
 \newcommand{\er}{\textmd{EXPERTroot}}
 
 \begin{document}
-\title{Timing properties of the NeuRad detector}
+\title{Timing properties of the NeuRad detector prototype}
 
 \author{\firstname{I.} \lastname{Muzalevsky}\inst{1,3,4}\fnsep\thanks{\email{ivanmuzalevskij@gmail.com}} \and
 	\firstname{V.} \lastname{Chudoba}\inst{1,3}\fnsep\thanks{\email{chudoba@jinr.ru}} \and
@@ -56,7 +56,7 @@ Properties of exotic nuclei represent one of the most important fields in modern
 Such uncommon nuclei are characterized by large excess of neutrons or protons and are located far from the nuclear stability. As far as the binding energy decreases, one may observe the transition from the discrete spectra to nuclear resonances with many overlapping states and, as a consequence, such unique phenomena as neutron halo, soft mode of dipole excitation and others could be observed. Moreover, new decay channels, including many-body, are becoming open \cite{ufn}.
 
 As far as exotic nuclei are unstable one meets a problem how to produce them.
-One of the most developed facility for their production by separation in-flight will be fragment separator Super-FRS at FAIR (Facility for Antiproton and Ion Research) \cite{diplom}. Project EXPERT (EXotic Particle Emission and Radioactivity by Tracking \cite{IMexpert}) dedicated to study of properties of exotic nuclei is a part of program of the Super-FRS Experiment Collaboration. EXPERT setup consists of five modules each of which is intended to detect different decay products \cite{tdr}.
+One of the most developed facility for their production by separation in-flight will be fragment separator Super-FRS at FAIR (Facility for Antiproton and Ion Research) \cite{diplom}. Project EXPERT (EXotic Particle Emission and Radioactivity by Tracking \cite{IMexpert}) dedicated to study of properties of exotic nuclei is a part of program of the Super-FRS Experiment Collaboration. dirtyEXPERT setup consists of five modules each of which is intended to detect different decay products \cite{tdr}.
 These modules may be enumerated as:
 \begin{inparaenum}[(i)]
 	\item Radiation-hard silicon strip detector (SSD) for Time-of-Flight and triggering.
@@ -98,7 +98,7 @@ If several  fibers are fired due to the neutron re-scattering or distribution of
 \section{Test of NeuRad timing properties}
 
 The first investigation aimed at obtaining the timing characteristics of the NeuRad detector was conducted recently in Flerov Laboratory of Nuclear Reactions JINR, Dubna. The NeuRad prototype was used for these test measurements. The sensitive part of the prototype was a bundle of 256 optical fibers made of scintillator plastic BCF-12 \cite{crystals}. 
-Each fiber was covered with black paint for light insulation and had a cross section of 3$\times$3\,mm$^2$ and a length of 25\,cm. Two MAPMTs H9500 \cite{hm} were mounted to both sides of the bundle. To improve this connection, an optical lubricant was used.
+Each fiber was covered with black paint for light insulation and had a cross section of 3$\times$3\,mm$^2$ and a length of 25\,cm. Two MAPMTs H9500 \cite{hm} were mounted to both sides of the bundle. To improve this connection, an optical grease was used.
 
 \begin{figure}[h]
 	\centering
@@ -116,8 +116,6 @@ This prototype was irradiated by collimated gamma beam with energies $E^{(1)}_{\
 Simulation and data processing were performed within the \er\, framework. The geometry shown in the figure (Fig.\ref{ris:sim}a) was used for the MC simulations within the \er. The GEANT4\cite{geant4} classes were used for particle transport through the setup. Then energy deposits were  converted into the MAPMT anode pulses. Every pulse was calculated as a sum of single photoelecton pulses taking into account the following parameters and effects: light output of the scintillating fiber; efficiency of the light trapping into the fiber due to total internal reflection; scintillation decay time; light attenuation along the fiber; light collection increase near the edges of the fiber; light losses at the optical interface; MAPMT quantum efficiency; single photoelectron amplitude spectrum, pulse shape, and spread of the avalanche transition time through the dynode system; cross-talk as a probability of the single photoelecton avalanche developing in the neighboring pixel.
 Certain effects were not taken into account: any dependence of the pulse shape with the amplitude; cross-talk as the charge sharing of a single photoelectron avalanche between two or more anodes; partial collection of light after diffuse scattering at the walls; electronic noises; pulse shape distortion in the readout line. Most of the parameters for the simulations were taken from the data-sheets of the fibers and MAPMT.  Only the single photoelectron pulse shape and light losses at the optical interface were fitted to the experimental data. The simulated pulse shapes had the same format as in the experimental data.
 
-Typical pulses obtained in simulations and measurements turned out qualitatively similar and are shown in Fig.\ref{ris:sim}b) and Fig.\ref{ris:sim}c) respectively. However, there is a clear difference between the simulated and recoded experimental pulses. In the recorded ones one can notice a kind of low-amplitude afterpulses.  Those can be due to several reasons, e.g. stray capacity discharge and influence of the readout line bandwidth, which manifests itself in the damped oscillations caused by the sharp leading edge.
-
 \begin{figure}[h]
 	\begin{minipage}[h]{0.25\linewidth}
 		\center{\includegraphics[width=1\linewidth]{sim.png}} a) \\
@@ -133,25 +131,28 @@ Typical pulses obtained in simulations and measurements turned out qualitatively
 	\caption{a) Simulations within the \er. Prototype and collimator are depicted in blue, red colors respectively. The trajectory of the gamma particle is colored in yellow. b) Typical MAPMT's anode output signal form obtained in simulations c) Typical signal form obtained in measurements.}
 	\label{ris:sim}
 \end{figure}
+Typical pulses obtained in simulations and measurements turned out qualitatively similar and are shown in Fig.\ref{ris:sim}b) and Fig.\ref{ris:sim}c) respectively. However, there is a clear difference between the simulated and recoded experimental pulses. In the recorded ones one can notice a kind of low-amplitude afterpulses.  Those can be due to several reasons, e.g. stray capacity discharge and influence of the readout line bandwidth, which manifests itself in the damped oscillations caused by the sharp leading edge.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{summ1.png}
+	\caption{Pulse summs obtained in the measurements (red) and simulations (blue) in a log scale.}\label{ris:sum}
+\end{figure}
 
 Several algorithms of the data processing were developed and implemented into the \er, for example two discriminators --- Constant Fraction(CFD) and Leading Edge (LED), different event selection filters, alignment and summing up of the pulses, etc. Implemented algorithms allowed us to study the summed pulse and understand qualitatively its basic features. All the algorithms could be applied in the same way to both simulated and experimental data.
 
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.6\linewidth]{sum.png}
-%	\caption{}\label{ris:sum}
-%\end{figure}
-\begin{wrapfigure}{l}{0.54\linewidth}
-	\includegraphics[width=\linewidth]{sum1.png}
-	\caption{Pulse summs obtained in the measurements (red) and simulations (blue) in a log scale.}\label{ris:sum}
-\end{wrapfigure}
+%\begin{wrapfigure}{l}{0.54\linewidth}
+%	\includegraphics[width=\linewidth]{sum1.png}
+%	\caption{Pulse summs obtained in the measurements (red) and simulations (blue) in a log scale.}\label{ris:sum}
+%\end{wrapfigure}
 
 In the Fig.\ref{ris:sum} the simulated and experimental summed pulses are showed. The trigger threshold for the simulated data was set to the 0.77 of the average single photoelectron amplitude.
 Such a threshold allowed to match the vertical position of the sharp bend (indicated with an arrow in the picture) in both the pulses. Looking into this figure we are observing the following. The experimental pulse has  the decay profile which includes a fast exponent, faster than the value from the data-sheet, followed by the long non-exponential tail. There is a bump before the exponential decay. This feature is getting more prominent if the light losses at the optical interface go down or cross talks go up.  In order to get the quantitative fitting of the parameters and validation of the Monte Carlo model further measurements are needed. It is necessary to use the readout lines tested for their own performance with a fast laser and to read out bigger number of pixels at the same time in order to study all the effects more carefully.
 
 \section{Conclusion}
 	
-	First small-size prototype of the NeuRad detector was investigated using $\gamma$-sources. Signal shapes have been digitized using fast oscilloscope and analog-to-digital converter; timing properties have been determined with specially developed methods of digital pulse processing. Same algorithms have been also used for processing simulated signals. The processing algorithms are implemented into the \er\, software package. It was found that the results of the tests and simulations are in a good agreement meaning that the most of the features of the detector are well understood. The results of the present work will allow a correct choice of the readout electronics for the final system. Therefore, they are very important contribution to the EXPERT/Super-FRS project.
+	First small-size prototype of the NeuRad detector was investigated using $\gamma$-sources. Signal shapes have been digitized using 
+	waveform digitizer; timing properties have been studied with specially developed methods of digital pulse processing. Same algorithms have been also used for processing simulated signals. The processing algorithms are implemented into the \er\, software package. It was found that the results of the tests and simulations are in a good agreement meaning that the most of the features of the detector are well understood. The results of the present work will allow a correct choice of the readout electronics for the final system. Therefore, they are very important contribution to the EXPERT/Super-FRS project.
 	
 	
 	%Prototype of the NeuRad detector was investigated for the timing properties.
