@@ -98,7 +98,7 @@ If several  fibers are fired due to the neutron re-scattering or distribution of
 \section{Test of NeuRad timing properties}
 
 The first investigation aimed at obtaining the timing characteristics of the NeuRad detector was conducted recently in Flerov Laboratory of Nuclear Reactions JINR, Dubna. The NeuRad prototype was used for these test measurements. The sensitive part of the prototype was a bundle of 256 optical fibers made of scintillator plastic BCF-12 \cite{crystals}. 
-Each fiber was covered with black paint for light insulation and had a cross section of 3$\times$3\,mm$^2$ and a length of 25\,cm. Two MAPMTs H9500 \cite{hm} were mounted to both sides of the bundle. To improve this connection, an optical grease was used.
+Each fiber was covered with white acrylic paint in the first layer and black in the second for light insulation and had a cross section of 3$\times$3\,mm$^2$ and a length of 25\,cm. Two MAPMTs H9500 \cite{hm} were mounted to both sides of the bundle. To improve this connection, an optical grease was used.
 
 \begin{figure}[h]
 	\centering
@@ -131,11 +131,11 @@ Certain effects were not taken into account: any dependence of the pulse shape w
 	\caption{a) Simulations within the \er. Prototype and collimator are depicted in blue, red colors respectively. The trajectory of the gamma particle is colored in yellow. b) Typical MAPMT's anode output signal form obtained in simulations c) Typical signal form obtained in measurements.}
 	\label{ris:sim}
 \end{figure}
-Typical pulses obtained in simulations and measurements turned out qualitatively similar and are shown in Fig.\ref{ris:sim}b) and Fig.\ref{ris:sim}c) respectively. However, there is a clear difference between the simulated and recoded experimental pulses. In the recorded ones one can notice a kind of low-amplitude afterpulses.  Those can be due to several reasons, e.g. stray capacity discharge and influence of the readout line bandwidth, which manifests itself in the damped oscillations caused by the sharp leading edge.
+Typical pulses obtained in simulations and measurements turned out qualitatively similar and are shown in Fig.\ref{ris:sim}b) and Fig.\ref{ris:sim}c) respectively. However, there is a clear difference between the simulated and recoded experimental pulses. In the recorded ones one can notice a kind of low-amplitude afterpulses. Those can be due to several reasons, e.g. stray capacity discharge and influence of the readout line bandwidth, which manifests itself in the damped oscillations caused by the sharp leading edge.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{summ1.png}
+	\includegraphics[width=0.68\linewidth]{summ1.png}
 	\caption{Pulse summs obtained in the measurements (red) and simulations (blue) in a log scale.}\label{ris:sum}
 \end{figure}
 
@@ -147,13 +147,13 @@ Several algorithms of the data processing were developed and implemented into th
 %\end{wrapfigure}
 
 In the Fig.\ref{ris:sum} the simulated and experimental summed pulses are showed. The trigger threshold for the simulated data was set to the 0.77 of the average single photoelectron amplitude.
-Such a threshold allowed to match the vertical position of the sharp bend (indicated with an arrow in the picture) in both the pulses. Looking into this figure we are observing the following. The experimental pulse has  the decay profile which includes a fast exponent, faster than the value from the data-sheet, followed by the long non-exponential tail. There is a bump before the exponential decay. This feature is getting more prominent if the light losses at the optical interface go down or cross talks go up.  In order to get the quantitative fitting of the parameters and validation of the Monte Carlo model further measurements are needed. It is necessary to use the readout lines tested for their own performance with a fast laser and to read out bigger number of pixels at the same time in order to study all the effects more carefully.
+Such a threshold allowed to match the vertical position of the sharp bend (indicated with an arrow in the picture) in both the pulses. Looking into this figure we are observing the following. The experimental pulse has  the decay profile which includes a fast exponent, faster than the value from the data-sheet, followed by the long non-exponential tail. There is a bump before the exponential decay (circled in black). This feature is getting more prominent if the light losses at the optical interface go down or cross talks go up. In order to get the quantitative fitting of the parameters and validation of the Monte Carlo model further measurements are needed. It is necessary to use the readout lines tested for their own performance with a fast laser and to read out bigger number of pixels at the same time in order to study all the effects more carefully.
 
 \section{Conclusion}
-	
-	First small-size prototype of the NeuRad detector was investigated using $\gamma$-sources. Signal shapes have been digitized using 
-	waveform digitizer; timing properties have been studied with specially developed methods of digital pulse processing. Same algorithms have been also used for processing simulated signals. The processing algorithms are implemented into the \er\, software package. It was found that the results of the tests and simulations are in a good agreement meaning that the most of the features of the detector are well understood. The results of the present work will allow a correct choice of the readout electronics for the final system. Therefore, they are very important contribution to the EXPERT/Super-FRS project.
-	
+		
+	First small-size prototype of the NeuRad detector was investigated using
+	$\gamma$-source. Signal shapes have been obtained using waveform digitizer; timing properties have been studied with specially developed methods of digital pulse processing. The processing algorithms are implemented into the EXPERTroot software package. All measurements were simulated using \er. It was found that the results of the tests and simulations are in a qualitative agreement. Influence of principal parameters of the detector on the pulse shape are understood. It is necessary to conduct new measurements of the prototype using a fast laser to get more precise information of it's timing properties.
+	The results of this kind of study will allow a correct choice of the optimal readout electronics for the entire system.
 	
 	%Prototype of the NeuRad detector was investigated for the timing properties.
 	%Standard algorithms for signal processing were implemented into the \er\ framework. The simulation of the MAPMT's time response was developed and implemented as well.
@@ -170,7 +170,7 @@ This  work was partly supported by Helmholtz Association under grant agreement I
 	
 \begin{thebibliography}{99}
 	\bibitem{ufn} 
-	Grigorenko L V, Golovkov M S, Krupko S A, Sidorchuk S I, Ter-Akopian G M, Fomichev A S, Chudoba V “Studies of light exotic nuclei in vicinity of neutron and proton drip-lines at FLNR JINR” Phys. Usp. 59 321–366 (2016); DOI: 10.3367/UFNe.0186.201604a.0337
+	L.Grigorenko et al., “Studies of light exotic nuclei in vicinity of neutron and proton drip-lines at FLNR JINR” Phys. Usp. 59 321–366 (2016); DOI: 10.3367/UFNe.0186.201604a.0337
 	
 	
 	\bibitem{tdr} 
@@ -180,7 +180,7 @@ This  work was partly supported by Helmholtz Association under grant agreement I
 	M. Winkler et al., The status of the Super-FRS in-flight facility at FAIR, Nucl. Instr. and Meth. in Phys. Res. B 266 (2008) 4183.
 	
 	\bibitem{IMexpert} 
-	Geissel, H., Kiselev, O., Mukha, I., et al., "Expert (exotic Particle Emission and Radioactivity by Tracking) Studies at the Super-Frs Spectrometer", 2015, Exotic Nuclei: EXON-2014 - Proceedings of International Symposium.
+	Geissel, H., Kiselev, O., Mukha, I., et al., "Expert (exotic Particle Emission and Radioactivity by Tracking) Studies at the Super-FRS Spectrometer", 2015, Exotic Nuclei: EXON-2014 - Proceedings of International Symposium.
 	
 	\bibitem{report}
 	D. Kostyleva et al., GSI Scientific Report 2016 171 (2017), DOI:10.15120/GR-2017-1
