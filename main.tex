@@ -40,7 +40,7 @@
 %	\color{red}
 	One of the subtopics of the SuperFRS Experiment Collaboration, being part of NUSTAR@FAIR, is investigation of properties of light exotic nuclei using EXPERT setup.
 	One of its modules, the NeuRad detector, is intended for registration of neutrons emitted by investigated nuclei.
-	Present work is dedicated to investigation of the timing properties of the NeuRad detector prototype. Timing properties of the measured and simulated signals have been determined using digital processing algorithms. Obtained results allow better understanding of the processes in the scintillator fibers coupled to the multi-anode PMT and are an important contribution to the development of readout electronics of the setup.
+	Present work is dedicated to investigation of the timing properties of the NeuRad detector prototype. Timing properties of the measured and simulated signals have been determined using digital processing algorithms. Obtained results allow better understanding of the processes in the scintillator fibers coupled to the multi-anode PMT.
 }
 %
 \maketitle
@@ -48,7 +48,7 @@
 %\color{red}
 \section{Introduction}
 Properties of exotic nuclei represent one of the most important fields in modern nuclear physics.
-Such uncommon nuclei are characterized by large excess of neutrons or protons and are located far from the nuclear stability. As far as the binding energy decreases, one may observe the transition from the discrete spectra to nuclear resonances with many overlapping states and, as a consequence, such unique phenomena as neutron halo, soft mode of dipole excitation and others could be observed. Moreover, new decay channels, including many-body, are becoming open.
+Such uncommon nuclei are characterized by large excess of neutrons or protons and are located far from the nuclear stability. As far as the binding energy decreases, one may observe the transition from the discrete spectra to nuclear resonances with many overlapping states and, as a consequence, such unique phenomena as neutron halo, soft mode of dipole excitation and others could be observed. Moreover, new decay channels, including many-body, are becoming open \cite{ufn}.
 
 As far as exotic nuclei are unstable one meet a problem how to produce them.
 One of the most developed facility for their production by separation in-flight will be fragment separator Super-FRS at FAIR (Facility for Antiproton and Ion Research) \cite{diplom}. Project EXPERT (EXotic Particle Emission and Radioactivity by Tracking \cite{IMexpert}) dedicated to study of properties of exotic nuclei is a part of program of the Super-FRS Experiment Collaboration. EXPERT setup consists of five modules each of which is intended to detect different decay products \cite{tdr}.
@@ -61,19 +61,23 @@ These modules may be enumerated as:
 	\item The NeuRad (Neutron Radioactivity) fine-resolution neutron detector.
 \end{inparaenum}
 
-Additional important part of the EXPERT project is a framework for simulations of the experiments and processing of the experimental data, EXPERTroot \cite{er}. 
+The project is supported by theoretical simulation sofware and EXPERTroot \cite{er} --- the framework for simulations of the experiments and processing of the experimental data. 
 
 %Additional important part of the EXPERT project is a framework for simulations of the experiments and processing of the experimental data. For this purpose a framework EXPERTroot \cite{er} has been developed.
 %%EXPERTroot is a framework for Monte-Carlo simulations of detector responses, event reconstruction and EXPERT experiment analysis.
-This paper is dedicated to exploration of the timing properties of the NeuRad prototype.
+This paper is dedicated to exploration of the timing properties of the NeuRad detector prototype.
 %All necessary methods of data processing and simulation were implemented into the EXPERTroot.
 
-\section{Test of NeuRad timing properties}
-Neutron detector NeuRad is aimed to provide precise information on angular correlations between neutrons emitted from decay and heavy ion fragment which will be identified by Super-FRS beam diagnostic system. An information on angular correlations will be used to determine decay energy of the precursor and its lifetime. Trajectories of a heavy ion and neutrons will be reconstructed by an array of the $\mu$Si detectors and the NeuRad detector respectively. %The trajectories of neutrons will be reconstructed from the data obtained by NeuRad.  %This number is determined by the low transfer momentum of the decay with energies expected in the range of 0.1-100 keV.  
+\section{The NeuRad detector}
+
+Neutron detector NeuRad is aimed at providing precise information on angular correlations between neutrons a and heavy fragment emitted in the decay of a nucleus of interest. The heavy fragment will be identified by Super-FRS beam diagnostic system. Information on angular correlations will be used to determine the decay energy of the nucleus of interest and its lifetime. Trajectories of a heavy fragment and neutrons will be reconstructed by an array of the $\mu$Si detectors and the NeuRad detector respectively.
+
+ %The trajectories of neutrons will be reconstructed from the data obtained by NeuRad.  %
 %NeuRad will be constructed from a large number of scintillating fibers (≈10000 units) arranged parallel to the direction of the neutron trajectories
-NeuRad will be constructed from a large number of scintillating fibers ($\approx$10000 units). Each fiber will have a square cross section of 3$\times$3\,mm$^2$ and the length of 1\,m.% Scintillating fibers will be grouped into bundles. 
+
+NeuRad will be constructed from a large number of scintillating fibers ($\approx$10000 units. Each fiber will have a square cross section of 3$\times$3\,mm$^2$ and the length of 1\,m.% Scintillating fibers will be grouped into bundles. 
 Scintillating fibers will be grouped into bundles fitting the photosensors like multi-anode PMTs (MAPMTs).
-The neutrons penetrating into the bundles will be mostly elastically scattered on protons (about 10\% of neutrons will be scattered on the carbon nuclei). In such case recoil proton will induce a scintillation light inside the fiber. 
+The neutrons penetrating into the bundles undergo different interaction processes, but the most important one for the neutron registration is the elastic scattering on protons. In such a case recoil proton will induce a scintillation light inside the fiber. 
 The light emitted within the full reflection angle travels to the MAPMTs located at the both ends of the fiber.
 MAPMT's will be mounted to the bundles so that the area of each pixel corresponding to its anode will completely overlap the frontal surface of one fiber.
 
@@ -86,18 +90,25 @@ MAPMT's will be mounted to the bundles so that the area of each pixel correspond
 In the course of planned experiments, NeuRad will be placed in 28 meters downstream of the secondary target so that the fibers will be oriented along the beam direction \cite{report}, see Fig.\ref{ris:neuradPrinciple}.
 This is planned in order to provide sufficient efficiency of the detection and fine position resolution for neutrons with energies between 200 and 800\,MeV in laboratory system.
 With such a configuration the total angular acceptance of the detector will be about 12\,mrad.
-Thus, the neutron beam will pass through the photomultiplier tubes before penetrating into the sensitive scintillating material.
-Two coordinates, transverse to the direction of the beam, of the neutron interaction with the scintillating material will be obtained from the number of the fired fibers in which the scattering would be occurred.
-The longitudinal coordinate will be determined from measurement of the time difference of the signals from two MAPMTs located on the opposite sides of the detector. 
-The accuracy of determining the longitudinal coordinate of the interaction depends on time resolution of the detector which is one of the significant characteristics of the intended NeuRad device.
-Time resolution is a uncertainty of determining the time of the interaction of a particle with the detector.
+This number is determined by the low transversla momentum of the neutrons expected in decays with energies in the range of 0.1-100 keV.  
+
+
+
+In the case of a single scattering of the neutron inside the Neurad, the position of the fired fiber or the cluster of neighboring fibers gives information about transversal coordinates of the interaction point. Time stamps of the signals from both MAPMTs allow to derive the longitudinal position of the energy deposite and time-of-flight, which is used for the determination of the neutron kinetic energy. 
+
+If several  fibers are fired due to the neutron re-scattering or distribution of the energy deposited by the recoil proton, the interaction point may be reconstructed by searching for an erliest signal in the upstream MAPMT. Besides, timing information may be used in more sophisticated analysis of the events with multiple hits.
+
+%Two coordinates, transverse to the direction of the beam, of the neutron interaction with the scintillating material will be obtained from the number of the fired fibers in which the scattering would be occurred.
+%The longitudinal coordinate will be determined from measurement of the time difference of the signals from two MAPMTs located on the opposite sides of the detector. 
+%The accuracy of determining the longitudinal coordinate of the interaction depends on time resolution of the detector which is one of the significant characteristics of the intended NeuRad device.
+%Time resolution is a uncertainty of determining the time of the interaction of a particle with the detector.
 %Taking into account complex processes of a neutron scattering and a light propagation in the scintillation fiber, we aim in obtaining time uncertainty better than 1 ns (FWHM) which corresponds to 20 cm position resolution. Nevertheless, somewhat worse time (and thus position resolution) do not prohibit neutron measurements with this detector.
-For example, in order to obtain 14\,cm position resolution one has to ensure time-uncertainty better than 1\,ns.
-Also it is important to determine exactly the first neutron hit and following sequence of the signals induced in the detector material. This information allows to distinguish multi-neutron events from the multiple hits of a single re-scattered neutron.
+%For example, in order to obtain 14\,cm position resolution one has to ensure time-uncertainty better than 1\,ns.
+%Also it is important to determine exactly the first neutron hit and following sequence of the signals induced in the detector material. This information allows to distinguish multi-neutron events from the multiple hits of a single re-scattered neutron.
 
-%\section{Measurements}
+\section{Test of NeuRad timing properties}
 
-The first investigation aimed to obtain timing characteristics of the NeuRad detector was conducted recently in Flerov Laboratory of Nuclear Reactions JINR, Dubna. The NeuRad prototype was used for these test measurements. The sensitive part of the prototype was a bundle of 256 optical fibers made of scintillator plastic BCF-12 \cite{crystals}. 
+The first investigation aimed at obtaining the timing characteristics of the NeuRad detector was conducted recently in Flerov Laboratory of Nuclear Reactions JINR, Dubna. The NeuRad prototype was used for these test measurements. The sensitive part of the prototype was a bundle of 256 optical fibers made of scintillator plastic BCF-12 \cite{crystals}. 
 Each fiber had a cross section of 3$\times$3\,mm$^2$ and a length of 25\,cm. Two MAPMTs H9500 \cite{hm} were mounted to both sides of the bundle.
 
 
@@ -121,7 +132,7 @@ Simulation and data processing were performed within the \er\, framework.
 The geometry shown in the figure (Fig.\ref{ris:sim}a) was used for the MC simulations within the \er. The GEANT4\cite{geant4} classes were used for particle transport through the setup. Then energy deposits were  converted into the MAPMT anode pulses. Every pulse was calculated as a sum of single photoelecton pulses taking into account the following parameters and effects: light output of the scintillating fiber; efficiency of the light trapping into the fiber due to total internal reflection; scintillation decay time; light attenuation along the fiber; light collection increase near the edges of the fiber; light losses at the optical interface; MAPMT quantum efficiency; single photoelectron amplitude spectrum, pulse shape, and spread of the avalanche transition time through the dynode system; cross-talk as a probability of the singлучи были направлены на le photoelecton avalanche developing in the neighboring pixel.
 Certain effects were not taken into account: any dependence of the pulse shape with the amplitude; cross-talk as the charge sharing of a single photoelectron avalanche between two or more anodes; partial collection of light after diffuse scattering at the walls; electronic noises; pulse shape distortion in the readout line. Most of the parameters for the simulations were taken from the data-sheets of the fibers and MAPMT.  Only the single photoelectron pulse shape and light losses at the optical interface were fitted to the experimental data. The simulated pulse shapes had the same format as in the experimental data.
 
-Typical signal shapes obtained in simulations and measurements turned out similar and are shown in Fig.\ref{ris:sim}b) and Fig.\ref{ris:sim}c) respectively. There is a clear difference between the simulated and recoded experimental pulses. In the recorded ones one can notice a kind of low-amplitude afterpulses.  Those can be due to several reasons, e.g. stray capacity discharge and influence of the readout line bandwidth, which manifests itself in the damped oscillations caused by the sharp leading edge.
+Typical signal shapes obtained in simulations and measurements turned out qualitatively similar and are shown in Fig.\ref{ris:sim}b) and Fig.\ref{ris:sim}c) respectively. However, there is a clear difference between the simulated and recoded experimental pulses. In the recorded ones one can notice a kind of low-amplitude afterpulses.  Those can be due to several reasons, e.g. stray capacity discharge and influence of the readout line bandwidth, which manifests itself in the damped oscillations caused by the sharp leading edge.
 
 \begin{figure}[h]
 	\begin{minipage}[h]{0.25\linewidth}
@@ -153,7 +164,7 @@ Several algorithms of the data processing were developed and implemented into th
 %	\caption{}\label{ris:sum}
 %\end{figure}
 
-In the figure \ref{ris:sum} the simulated and experimental summed pulses are shown. The trigger threshold for the simulated data was set to the ??(fraction?) of the average single photoelectron amplitude. Such a threshold allowed to match the vertical position of the sharp bend in both the pulses. Looking into this figure we are observing the following. The experimental pulse has  the decay profile which includes a fast exponent, faster than the value from the data-sheet, followed by the long non-exponential tail. There is a bump before the exponential decay. This feature is getting more prominent if the light losses at the optical interface go down or cross talks go up.  In order to get the quantitative fitting of the parameters and validation of the Monte Carlo model further measurements are needed. It is necessary to uлучи были направлены на se the readout lines tested for their own performance with a fast laser and to read out bigger number of pixels at the same time in order to study the effects caused by different reasons.
+In the figure \ref{ris:sum} the simulated and experimental summed pulses are shown. The trigger threshold for the simulated data was set to the ??(fraction?) of the average single photoelectron amplitude. Such a threshold allowed to match the vertical position of the sharp bend (indicated with an arrowe in the picture) in both the pulses. Looking into this figure we are observing the following. The experimental pulse has  the decay profile which includes a fast exponent, faster than the value from the data-sheet, followed by the long non-exponential tail. There is a bump before the exponential decay. This feature is getting more prominent if the light losses at the optical interface go down or cross talks go up.  In order to get the quantitative fitting of the parameters and validation of the Monte Carlo model further measurements are needed. It is necessary to use the readout lines tested for their own performance with a fast laser and to read out bigger number of pixels at the same time in order to study all the effects more carefully.
 
 
 \section{Conclusion}
@@ -178,6 +189,9 @@ This  work was partly supported by Helmholtz Association under grant agreement I
 	
 	\bibitem{tdr} 
 	Technical Design Report of the EXPERT setup of the Super-FRS Experiment Collaboration, https;//edms.cern.ch/document/1865700
+	
+	\bibitem{ufn} 
+	L.Grigorenko et al., “Studies of light exotic nuclei in vicinity of neutron and proton drip-lines at FLNR JINR” Phys. Usp. 59 321–366 (2016); DOI: 10.3367/UFNe.0186.201604a.0337
 	
 	\bibitem{diplom} 
 	M. Winkler et al., The status of the Super-FRS in-flight facility at FAIR, Nucl. Instr. and Meth. in Phys. Res. B 266 (2008) 4183.
