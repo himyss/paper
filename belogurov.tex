@@ -45,10 +45,11 @@
 \abstract{%
 %	\color{red}
 	One of the subtopics of the Super-FRS Experiment Collaboration, being part of NUSTAR@FAIR, is investigation of properties of light exotic nuclei using EXPERT setup.
-	One of its modules, the NeuRad detector, is intended for registration of neutrons emitted by investigated nuclei.
+	One of its modules, the NeuRad detector, is intended for registration of neutrons emitted by investigated nuclei. 
+	In order to study the characteristics of the detector, it's prototype have been tested.
 	This work is dedicated to the study of formation mechanisms of the signals obtained from the NeuRad detector prototype.
-	Timing properties of the measured and simulated signals have been studied using digital processing algorithms.
-	The influence of the key parameters of the detector on the signal shape are understood.
+	Timing properties of the measured and simulated pulse shapes have been studied using digital processing algorithms.
+	The influence of the key parameters of the detector on the shape are understood.
 }
 %
 \maketitle
@@ -102,9 +103,9 @@ In the case of a single scattering of the neutron inside the NeuRad, the positio
 
 If several fibers are fired due to the neutron re-scattering or distribution of the energy deposited by the recoil proton, the first interaction point may be reconstructed by searching for the earliest signal in the upstream MAPMT. Besides, timing information may be used in more sophisticated analysis of the events with multiple hits.
 
-\section{Test of NeuRad timing properties}
+\section{Test of NeuRad prototype}
 
-The first investigation aimed at obtaining the timing characteristics of the NeuRad detector was conducted recently in the Flerov Laboratory of Nuclear Reactions JINR, Dubna. The NeuRad prototype was used for these test measurements. The sensitive part of the prototype was a bundle of 256 optical fibers made of the scintillator plastic BCF-12 \cite{crystals}. 
+The first investigation of the NeuRad detector was conducted recently in the Flerov Laboratory of Nuclear Reactions JINR, Dubna. The NeuRad prototype was used for these test measurements. The sensitive part of the prototype was a bundle of 256 optical fibers made of the scintillator plastic BCF-12 \cite{crystals}. 
 Each fiber was covered with a white acrylic paint in the first layer and a black aerosol paint in the second one for the light insulation and had a cross section of 3$\times$3\,mm$^2$ and a length of 25\,cm. Two MAPMTs H9500 \cite{hm} were mounted to the both sides of the bundle. To improve this connection, an optical grease was used.
 
 \begin{figure}[h]
@@ -144,18 +145,18 @@ Certain effects were not taken into account: any dependence of the pulse shape o
 \end{figure}
 Typical pulses obtained in simulations and measurements turned out qualitatively similar and are shown in the Fig.\,\ref{ris:sim}b) and the Fig.\,\ref{ris:sim}c) respectively. However, there is a clear difference between the simulated and the recorded experimental pulses. In the experimental ones one can notice a kind of low-amplitude afterpulses. Those can be due to several reasons, e.g. a stray capacity discharge and an influence of the readout line bandwidth, which manifests itself in the damped oscillations caused by the sharp leading edge.
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{summ1.png}
-	\caption{The pulse sums obtained in the measurements (red) and the simulations (blue) in a log scale.}\label{ris:sum}
-\end{figure}
-
-Several algorithms of the data processing were developed and implemented into the \er, for example two discriminators --- Constant Fraction and Leading Edge, different event selection filters, an alignment and a summing up of the pulses, etc. The implemented algorithms allowed us to study the summed pulse and to understand qualitatively its basic features. All algorithms could be applied in the same way to both simulated and experimental data.
+Several data processing algorithms were developed and implemented into the \er, for example two discriminators --- Constant Fraction and Leading Edge, different event selection filters, an alignment and summing up of the pulses, etc. The implemented algorithms allowed us to study the summed pulse and to understand qualitatively its basic features. All algorithms could be applied in the same way to both simulated and experimental data.
 
 %\begin{wrapfigure}{l}{0.54\linewidth}
 %	\includegraphics[width=\linewidth]{sum1.png}
 %	\caption{Pulse summs obtained in the measurements (red) and simulations (blue) in a log scale.}\label{ris:sum}
 %\end{wrapfigure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\linewidth]{summ1.png}
+	\caption{The pulse sums obtained in the measurements (red) and the simulations (blue) in a log scale.}\label{ris:sum}
+\end{figure}
 
 Simulated and experimental summed pulses in a logarithmic scale are shown in the Fig.\,\ref{ris:sum}.
 The trigger threshold for the simulated data was set to the 0.77 of the average single photoelectron amplitude.
@@ -163,7 +164,7 @@ Such a threshold allowed to match the rising edge (indicated with an arrow in th
 
 \section{Conclusion}
 		
-	The first small-size prototype of the NeuRad detector was investigated using the $\gamma$-source. The signal shapes have been obtained using the waveform digitizer; the timing properties have been studied with the specially developed methods of the digital pulse processing. The processing algorithms are implemented into the EXPERTroot software package. All the measurements were simulated using the \er. The influence of the key parameters of the detector on the signal shape are understood. For a better understanding of the timing properties and a quantitative validation of the Monte Carlo simulations it is necessary to conduct new measurements with the NeuRad prototype recording bigger number of channels and using well calibrated electronics.
+	The first small-size prototype of the NeuRad detector was investigated using the $\gamma$-source. The pulse shapes have been obtained using the waveform digitizer and from the prototype have been studied with the specially developed methods of the digital pulse processing. All processing algorithms were implemented into the EXPERTroot software package. The measurements were simulated using the \er. The influence of the key parameters of the detector on the signal shape are understood. For a better understanding of the timing properties and a quantitative validation of the Monte Carlo simulations it is necessary to conduct new measurements with the NeuRad prototype recording bigger number of channels and using well calibrated electronics.
 	The results of this kind of study will allow a correct choice of the optimal readout electronics for the entire system.
 	
 	%Prototype of the NeuRad detector was investigated for the timing properties.
@@ -176,7 +177,11 @@ Such a threshold allowed to match the rising edge (indicated with an arrow in th
 	%Therefore, the results of this work are very important contribution to the development of the EXPERT project.
 	
 \section{Acknowledgement}
+
 This  work was partly supported by the Helmholtz Association under grant agreement IK-RU-002, RSF 17-12-01367 grant and the MEYS Projects (Czech Republic) LTT17003 and LM2015049.
+
+We thank Ivan Mukha (GSI) for assistance with methodology, and for comments that greatly improved this article.
+
 
 	
 \begin{thebibliography}{99}
@@ -204,11 +209,11 @@ This  work was partly supported by the Helmholtz Association under grant agreeme
 	\bibitem{hm} 
 	www.hamamatsu.com/
 	
-	\bibitem{geant4}
-	http://geant4.cern.ch/
-	
 	\bibitem{DRS}
 	https://www.psi.ch/drs/
+	
+	\bibitem{geant4}
+	http://geant4.cern.ch/
 	
 %%	\bibitem{petsys}
 %	http://www.petsyselectronics.com/web/
