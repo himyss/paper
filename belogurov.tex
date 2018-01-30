@@ -98,14 +98,14 @@ With such configuration the total angular acceptance of the detector will be abo
 %This number is determined by the low transversal momentum of the neutrons expected in decays with energies in the range of 0.1-100\,keV.
 Such value is sufficient for registration the low transversal momenta of the neutrons expected in the decays with the energies in the range of 0.1-100\,keV.
 
-In the case of a single scattering of the neutron inside the NeuRad, the position of the fired fiber or the cluster of the neighboring fibers gives information about the transversal coordinates of the interaction point. The time stamps of the signals from the both MAPMTs allow to derive the longitudinal position of the vertex providing a correction of the time-of-flight measurement. The time-of-flight information is used for the determination of the neutron kinetic energy. 
+In the case of a single scattering of the neutron inside the NeuRad, the position of the fired fiber or the cluster of the neighboring fibers gives information about the transversal coordinates of the interaction point. The time stamps of the signals from the both MAPMTs allow to derive the longitudinal position of the energy deposit providing a correction of the time-of-flight measurement. The time-of-flight information is used for the determination of the neutron kinetic energy. 
 
 If several fibers are fired due to the neutron re-scattering or distribution of the energy deposited by the recoil proton, the first interaction point may be reconstructed by searching for the earliest signal in the upstream MAPMT. Besides, timing information may be used in more sophisticated analysis of the events with multiple hits.
 
 \section{Test of NeuRad prototype}
 
 The first investigation of the NeuRad detector was conducted recently in the Flerov Laboratory of Nuclear Reactions JINR, Dubna. The NeuRad prototype was used for these test measurements. The sensitive part of the prototype was a bundle of 256 optical fibers made of the scintillator plastic BCF-12 \cite{crystals}. 
-Each fiber was covered with a white acrylic paint in the first layer and a black aerosol paint in the second one for the light insulation and had a cross section of 3$\times$3\,mm$^2$ and a length of 25\,cm. Two MAPMTs H9500 \cite{hm} were mounted to the both sides of the bundle. To improve this connection, an optical grease was used.
+Each fiber was covered with a white acrylic paint in the first layer and a black aerosol paint in the second one for the light insulation and had a cross section of 3$\times$3\,mm$^2$ and a length of 25\,cm. Two MAPMTs H9500 \cite{hm} were mounted to the both sides of the bundle. To improve this connection, optical grease was used.
 
 \begin{figure}[h]
 	\centering
@@ -121,25 +121,24 @@ This prototype was irradiated by a collimated gamma beam with the energies $E^{(
 \section{Simulations and data processing}
 
 The simulation and data processing were performed within the \er\, framework.
-The geometry created within the \er\ and shown in the Fig.\,\ref{ris:sim}a) was used for the MC simulations.
-A particle transport through the setup was performed using the GEANT4 \cite{geant4} package.
-Obtained energy deposits were converted into the MAPMT anode pulses.
+The geometry created within the \er\ was used for the MC simulations.
+A particle transport through the setup was performed using the GEANT4 \cite{geant4} classes called from the EXPERTroot program. Obtained energy deposits were converted into the MAPMT anode pulses.
 Each pulse was calculated as a sum of single photoelectron pulses taking into account the following parameters and effects: light output of the scintillating fiber; the efficiency of the light trapping into the fiber due to a total internal reflection; the scintillation decay time; the light attenuation along the fiber; the light collection increase near the ends of the fiber; the light losses at the optical interface; the MAPMT quantum efficiency; the single photoelectron amplitude spectrum,the  pulse shape, and the spread of the avalanche transition time through the dynode system; the cross-talk as a probability of the single photoelectron avalanche developing in the neighboring pixel.
 Certain effects were not taken into account: any dependence of the pulse shape on the amplitude; the cross-talk as the charge sharing of a single photoelectron avalanche between the two or more anodes; the partial collection of the light after a diffuse scattering at the fiber faces; the electronic noises; the pulse shape distortion in the readout line. Most of the parameters for the simulations were taken from the data-sheets of the fibers and MAPMT. Only the single photoelectron pulse shape was fitted to the experimental data. The simulated pulse shapes had the same format as in the experimental data.
 
 \begin{figure}[h]
-	\begin{minipage}[h]{0.25\linewidth}
-		\center{\includegraphics[width=1\linewidth]{sim.png}} a) \\
-	\end{minipage}
-	\hfill
-	\begin{minipage}[h]{0.35\linewidth}
+%	\begin{minipage}[h]{0.25\linewidth}
+%		\center{\includegraphics[width=1\linewidth]{sim.png}} a) \\
+%	\end{minipage}
+%	\hfill
+	\begin{minipage}[h]{0.45\linewidth}
 		\center{\includegraphics[width=1\linewidth]{simSignal1.png}} b) \\
 	\end{minipage}
 	\hfill
-	\begin{minipage}[h]{0.35\linewidth}
+	\begin{minipage}[h]{0.45\linewidth}
 		\center{\includegraphics[width=1\linewidth]{originalsignalform.png}} c) \\
 	\end{minipage}
-	\caption{a) The simulations performed in the \er. The prototype and the collimator are depicted in blue and red colors respectively. The trajectory of the gamma particle is colored in yellow. b) The simulated MAPMT anode output. c) The experimental signal shape.}
+	\caption{ a) The simulated MAPMT anode output. b) The experimental signal shape.}
 	\label{ris:sim}
 \end{figure}
 Typical pulses obtained in simulations and measurements turned out qualitatively similar and are shown in the Fig.\,\ref{ris:sim}b) and the Fig.\,\ref{ris:sim}c) respectively. However, there is a clear difference between the simulated and the recorded experimental pulses. In the experimental ones one can notice a kind of low-amplitude afterpulses. Those can be due to several reasons, e.g. a stray capacity discharge and an influence of the readout line bandwidth, which manifests itself in the damped oscillations caused by the sharp leading edge.
