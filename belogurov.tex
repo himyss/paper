@@ -16,7 +16,7 @@
 \begin{document}
 \title{NeuRad detector prototype pulse shape study}
 
-\author{\firstname{I.} \lastname{Muzalevsky}\inst{1,3,4}\fnsep\thanks{\email{ivanmuzalevskij@gmail.com}} \and
+\author{\firstname{I.} \lastname{Muzalevsky}\inst{1,3,4}\fnsep\thanks{\email{muzalevsky@jinr.ru}} \and
 	\firstname{V.} \lastname{Chudoba}\inst{1,3}\fnsep\thanks{\email{chudoba@jinr.ru}} \and
 	\firstname{S.} \lastname{Belogurov}\inst{1} \and
 	\firstname{O.} \lastname{Kiselev}\inst{5} \and
@@ -109,7 +109,7 @@ Each fiber was covered with a white acrylic paint in the first layer and a black
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.66\linewidth]{NeuRadexperiment.png}
+	\includegraphics[width=0.7\linewidth]{NeuRadexperiment.png}
 	\captionof{figure}{A scheme of the measurements with the NeuRad prototype. The prototype was irradiated by a collimated $\gamma$-source $^{60}$Co.
 	The gamma rays were focused at the geometrical center of the prototype and signals were collected by a couple of H9500 MAPMTs.	
 }
@@ -145,22 +145,22 @@ Typical pulses obtained in simulations and measurements turned out qualitatively
 
 Several data processing algorithms were developed and implemented into the \er, for example two discriminators --- Constant Fraction and Leading Edge, different event selection filters, an alignment and summing up of the pulses, etc. The implemented algorithms allowed us to study the summed pulse and to understand qualitatively its basic features. All algorithms could be applied in the same way to both simulated and experimental data.
 
-%\begin{wrapfigure}{l}{0.54\linewidth}
-%	\includegraphics[width=\linewidth]{sum1.png}
-%	\caption{Pulse summs obtained in the measurements (red) and simulations (blue) in a log scale.}\label{ris:sum}
-%\end{wrapfigure}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.6\linewidth]{summ1.png}
+\begin{wrapfigure}{l}{0.63\linewidth}
+	\includegraphics[width=\linewidth]{summ.png}
 	\caption{The pulse sums obtained in the measurements (red) and the simulations (blue) in a log scale.}\label{ris:sum}
-\end{figure}
+\end{wrapfigure}
+
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[width=0.6\linewidth]{summ1.png}
+%	\caption{The pulse sums obtained in the measurements (red) and the simulations (blue) in a log scale.}\label{ris:sum}
+%\end{figure}
 
 Simulated and experimental summed pulses in a logarithmic scale are shown in the Fig.\,\ref{ris:sum}.
 The trigger threshold for the simulated data was set to the 0.77 of the average single photoelectron amplitude.
-Such a threshold allowed to match the rising edge (indicated with an arrow in the Fig.\,\ref{ris:sum}) in the both pulses. From this picture it can be established that the experimental pulse has the decay profile which includes a fast exponent, faster than the value from the data-sheet, followed by the long non-exponential tail. For simulated pulse there is a bump before the exponential decay (circled in black). This feature is getting more prominent if the light losses at the optical interface go down or the cross talks go up. In order to get the quantitative fitting of the parameters and validation of the Monte Carlo model further measurements are needed. 
+Such a threshold allowed to match the sharp bend at the leading edge (indicated with an arrow in the Fig.\,\ref{ris:sum}) in the both pulses. From this picture it can be established that the experimental pulse has the decay profile which includes a fast exponent, faster than the value from the data-sheet, followed by the long non-exponential tail. For simulated pulse there is a bump before the exponential decay. This feature is getting more prominent if the light losses at the optical interface go down or the cross talks go up. In order to get the quantitative fitting of the parameters and validation of the Monte Carlo model further measurements are needed. 
 
-The parameters of the readout circuit needs to be precisely measured using a fast laser. Bigger number of pixels should be read out at the same time in order to study all the effects more carefully.
+The parameters of the readout circuit needs to be precisely measured using a fast laser. Bigger number of pixels should be read out at the same time in order to study all the effects more carefully. As the next step, multichannel electronics based on TOFPET ASIC \cite{petsys} will be used for the readout of the NeuRad prototype. A transfer function of these electronics will be implemented into \er\, software in other to compare the simulated and experimental data.
 
 %It is necessary to use the readout lines tested for their own performance with a fast laser and to read out the bigger number of pixels at the same time in order to study all the effects more carefully.
 
@@ -179,7 +179,7 @@ The parameters of the readout circuit needs to be precisely measured using a fas
 	%Therefore, the results of this work are very important contribution to the development of the EXPERT project.
 	
 \section{Acknowledgement}
-The authors are grateful to I\,G\,Mukha for the assistance provided in carrying out this work and for numerous of useful advices.
+The authors are grateful to I\,G\,Mukha for the stimulating interest and numerous useful advices.
 This  work was partly supported by the Helmholtz Association under grant agreement IK-RU-002, RSF 17-12-01367 grant and the MEYS Projects (Czech Republic) LTT17003 and LM2015049.
 	
 \begin{thebibliography}{99}
@@ -213,6 +213,8 @@ This  work was partly supported by the Helmholtz Association under grant agreeme
 	\bibitem{geant4}
 	http://geant4.cern.ch/
 	
+	\bibitem{petsys}
+	http://www.petsyselectronics.com/web/
 %%	\bibitem{petsys}
 %	http://www.petsyselectronics.com/web/
 	
