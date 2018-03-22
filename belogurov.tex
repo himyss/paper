@@ -123,8 +123,11 @@ This prototype was irradiated by a collimated gamma beam with the energies $E^{(
 The simulation and data processing were performed within the \er\, framework.
 The geometry created within the \er\ was used for the MC simulations.
 A particle transport through the setup was performed using the GEANT4 \cite{geant4} classes called from the EXPERTroot program. Obtained energy deposits were converted into the MAPMT anode pulses.
-Each pulse was calculated as a sum of single photoelectron pulses taking into account the following parameters and effects: light output of the scintillating fiber; the efficiency of the light trapping into the fiber due to a total internal reflection; the scintillation decay time; the light attenuation along the fiber; the light collection increase near the ends of the fiber; the light losses at the optical interface; the MAPMT quantum efficiency; the single photoelectron amplitude spectrum,the  pulse shape, and the spread of the avalanche transition time through the dynode system; the cross-talk as a probability of the single photoelectron avalanche developing in the neighboring pixel.
+Each pulse was calculated as a sum of single photoelectron pulses taking into account the following parameters and effects: light output of the scintillating fiber; the efficiency of the light trapping into the fiber due to a total internal reflection; the scintillation decay time; the light attenuation along the fiber; the light collection increase near the ends of the fiber; the light losses at the optical interface; the MAPMT quantum efficiency; the single photoelectron amplitude spectrum,the  pulse shape, and the spread of the avalanche transition time through the dynode system; the cross-talk as a probability of the single photoelectron avalanche developing in the neighboring pixel \cite{vitalik}.
 Certain effects were not taken into account: any dependence of the pulse shape on the amplitude; the cross-talk as the charge sharing of a single photoelectron avalanche between the two or more anodes; the partial collection of the light after a diffuse scattering at the fiber faces; the electronic noises; the pulse shape distortion in the readout line. Most of the parameters for the simulations were taken from the data-sheets of the fibers and MAPMT. Only the single photoelectron pulse shape was fitted to the experimental data. The simulated pulse shapes had the same format as in the experimental data.
+
+\red{The goal of these simulations was understanding the physical processes taking place in the detector and their parameterization in the \er. Good agreement of the results of the simulations and measurements will allow to predict the results of the neutron detection.}
+
 
 \begin{figure}[h]
 %	\begin{minipage}[h]{0.25\linewidth}
@@ -143,7 +146,7 @@ Certain effects were not taken into account: any dependence of the pulse shape o
 \end{figure}
 Typical pulses obtained in simulations and measurements turned out qualitatively similar and are shown in the Fig.\,\ref{ris:sim}b) and the Fig.\,\ref{ris:sim}c) respectively. However, there is a clear difference between the simulated and the recorded experimental pulses. In the experimental ones one can notice a kind of low-amplitude afterpulses. Those can be due to several reasons, e.g. a stray capacity discharge and an influence of the readout line bandwidth, which manifests itself in the damped oscillations caused by the sharp leading edge.
 
-Several data processing algorithms were developed and implemented into the \er, for example two discriminators --- Constant Fraction and Leading Edge, different event selection filters, an alignment and summing up of the pulses, etc. The implemented algorithms allowed us to study the summed pulse and to understand qualitatively its basic features. All algorithms could be applied in the same way to both simulated and experimental data.
+Several data processing algorithms were developed and implemented into the \er, for example two discriminators --- Constant Fraction and Leading Edge, different event selection filters an alignment, etc. The implemented algorithms allowed us to study the summed pulse and to understand qualitatively its basic features. All algorithms could be applied in the same way to both simulated and experimental data.
 
 \begin{wrapfigure}{l}{0.63\linewidth}
 	\includegraphics[width=\linewidth]{summ.png}
@@ -192,6 +195,9 @@ This  work was partly supported by the Helmholtz Association under grant agreeme
 	\bibitem{IMexpert} 
 	Geissel, H., Kiselev, O., Mukha, I., et al., "Expert (exotic Particle Emission and Radioactivity by Tracking) Studies at the Super-FRS Spectrometer", 2015, Exotic Nuclei: EXON-2014 - Proceedings of International Symposium.
 	
+	\bibitem{vitalik} 	
+	Schetinin, V. (2016). Simulations of the EXPERT experiments of the of radioactive beam physics. (Unpublished master's thesis). Bauman Moscow State Technical University, Moscow, Russia.
+	
 	\bibitem{tdr} 
 	Technical Design Report of the EXPERT setup of the Super-FRS Experiment Collaboration, https;//edms.cern.ch/document/1865700
 
@@ -211,7 +217,8 @@ This  work was partly supported by the Helmholtz Association under grant agreeme
 	https://www.psi.ch/drs/
 	
 	\bibitem{geant4}
-	http://geant4.cern.ch/
+	Nuclear Instruments and Methods in Physics Research A 506 (2003) 250-303, and
+	IEEE Transactions on Nuclear Science 53 No. 1 (2006) 270-278.
 	
 	\bibitem{petsys}
 	http://www.petsyselectronics.com/web/
