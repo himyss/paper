@@ -123,10 +123,10 @@ This prototype was irradiated by a collimated gamma beam with the energies $E^{(
 The simulation and data processing were performed within the \er\, framework.
 The geometry created within the \er\ was used for the MC simulations.
 A particle transport through the setup was performed using the GEANT4 \cite{geant4} classes called from the EXPERTroot program. Obtained energy deposits were converted into the MAPMT anode pulses.
-Each pulse was calculated as a sum of single photoelectron pulses taking into account the following parameters and effects: light output of the scintillating fiber; the efficiency of the light trapping into the fiber due to a total internal reflection; the scintillation decay time; the light attenuation along the fiber; the light collection increase near the ends of the fiber; the light losses at the optical interface; the MAPMT quantum efficiency; the single photoelectron amplitude spectrum,the  pulse shape, and the spread of the avalanche transition time through the dynode system; the cross-talk as a probability of the single photoelectron avalanche developing in the neighboring pixel \cite{vitalik}.
+Each pulse was calculated as a sum of single photoelectron pulses taking into account the following parameters and effects: light output of the scintillating fiber; the efficiency of the light trapping into the fiber due to a total internal reflection; the scintillation decay time; the light attenuation along the fiber; the light collection increase near the ends of the fiber; the light losses at the optical interface; the MAPMT quantum efficiency; the single photoelectron amplitude spectrum,the  pulse shape, and the spread of the avalanche transition time through the dynode system; the cross-talk as a probability of the single photoelectron avalanche developing in the neighboring pixel. \red{A more detailed description of the simulation of the physical processes is described here \cite{er}.}
 Certain effects were not taken into account: any dependence of the pulse shape on the amplitude; the cross-talk as the charge sharing of a single photoelectron avalanche between the two or more anodes; the partial collection of the light after a diffuse scattering at the fiber faces; the electronic noises; the pulse shape distortion in the readout line. Most of the parameters for the simulations were taken from the data-sheets of the fibers and MAPMT. Only the single photoelectron pulse shape was fitted to the experimental data. The simulated pulse shapes had the same format as in the experimental data.
 
-\red{The goal of these simulations was understanding the physical processes taking place in the detector and their parameterization in the \er. Good agreement of the results of the simulations and measurements will allow to predict the results of the neutron detection.}
+\red{The goal of these simulations was understanding the physical processes taking place in the detector and their parameterization in the \er. Good agreement of the results of the simulations and measurements will allow to predict the results of the neutron detection. It is expected that the detector signals caused by neutrons will will have larger amplitudes, but there will be no neutron/photon separation.} 
 
 
 \begin{figure}[h]
@@ -134,33 +134,32 @@ Certain effects were not taken into account: any dependence of the pulse shape o
 %		\center{\includegraphics[width=1\linewidth]{sim.png}} a) \\
 %	\end{minipage}
 %	\hfill
-	\begin{minipage}[h]{0.45\linewidth}
-		\center{\includegraphics[width=1\linewidth]{simSignal1.png}} b) \\
+	\begin{minipage}[h]{0.47\linewidth}
+		\center{\includegraphics[width=1\linewidth]{simSignal2.png}} a) \\
 	\end{minipage}
 	\hfill
-	\begin{minipage}[h]{0.45\linewidth}
-		\center{\includegraphics[width=1\linewidth]{originalsignalform.png}} c) \\
+	\begin{minipage}[h]{0.47\linewidth}
+		\center{\includegraphics[width=1\linewidth]{originalsignalform2.png}} b) \\
 	\end{minipage}
 	\caption{ a) The simulated MAPMT anode output. b) The experimental signal shape.}
 	\label{ris:sim}
 \end{figure}
 Typical pulses obtained in simulations and measurements turned out qualitatively similar and are shown in the Fig.\,\ref{ris:sim}b) and the Fig.\,\ref{ris:sim}c) respectively. However, there is a clear difference between the simulated and the recorded experimental pulses. In the experimental ones one can notice a kind of low-amplitude afterpulses. Those can be due to several reasons, e.g. a stray capacity discharge and an influence of the readout line bandwidth, which manifests itself in the damped oscillations caused by the sharp leading edge.
 
-Several data processing algorithms were developed and implemented into the \er, for example two discriminators --- Constant Fraction and Leading Edge, different event selection filters an alignment, etc. The implemented algorithms allowed us to study the summed pulse and to understand qualitatively its basic features. All algorithms could be applied in the same way to both simulated and experimental data.
-
-\begin{wrapfigure}{l}{0.63\linewidth}
-	\includegraphics[width=\linewidth]{summ.png}
-	\caption{The pulse sums obtained in the measurements (red) and the simulations (blue) in a log scale.}\label{ris:sum}
-\end{wrapfigure}
-
+Several standard data processing algorithms were implemented into the \er, for example two discriminators --- Constant Fraction and Leading Edge, different event selection filters an alignment etc. The implemented algorithms allowed us to study the summed pulse and to understand qualitatively its basic features. All algorithms could be applied in the same way to both simulated and experimental data.
 %\begin{figure}[h]
 %	\centering
 %	\includegraphics[width=0.6\linewidth]{summ1.png}
 %	\caption{The pulse sums obtained in the measurements (red) and the simulations (blue) in a log scale.}\label{ris:sum}
 %\end{figure}
 
-Simulated and experimental summed pulses in a logarithmic scale are shown in the Fig.\,\ref{ris:sum}.
-The trigger threshold for the simulated data was set to the 0.77 of the average single photoelectron amplitude.
+\begin{wrapfigure}{l}{0.6\linewidth}
+	\includegraphics[width=\linewidth]{summ.png}
+	\caption{The pulse sums obtained in the measurements (red) and the simulations (blue) in a log scale.}\label{ris:sum}
+\end{wrapfigure}
+
+Simulated and experimental summed pulses in a logarithmic scale are shown in the Fig.\,\ref{ris:sum}. \red{These pulses are normalized by their maximum amplitudes.}
+The trigger threshold for the simulated data was set to the 1.7 of the average single photoelectron amplitude.
 Such a threshold allowed to match the sharp bend at the leading edge (indicated with an arrow in the Fig.\,\ref{ris:sum}) in the both pulses. From this picture it can be established that the experimental pulse has the decay profile which includes a fast exponent, faster than the value from the data-sheet, followed by the long non-exponential tail. For simulated pulse there is a bump before the exponential decay. This feature is getting more prominent if the light losses at the optical interface go down or the cross talks go up. In order to get the quantitative fitting of the parameters and validation of the Monte Carlo model further measurements are needed. 
 
 The parameters of the readout circuit needs to be precisely measured using a fast laser. Bigger number of pixels should be read out at the same time in order to study all the effects more carefully. As the next step, multichannel electronics based on TOFPET ASIC \cite{petsys} will be used for the readout of the NeuRad prototype. A transfer function of these electronics will be implemented into \er\, software in other to compare the simulated and experimental data.
@@ -194,9 +193,6 @@ This  work was partly supported by the Helmholtz Association under grant agreeme
 	
 	\bibitem{IMexpert} 
 	Geissel, H., Kiselev, O., Mukha, I., et al., "Expert (exotic Particle Emission and Radioactivity by Tracking) Studies at the Super-FRS Spectrometer", 2015, Exotic Nuclei: EXON-2014 - Proceedings of International Symposium.
-	
-	\bibitem{vitalik} 	
-	Schetinin, V. (2016). Simulations of the EXPERT experiments of the of radioactive beam physics. (Unpublished master's thesis). Bauman Moscow State Technical University, Moscow, Russia.
 	
 	\bibitem{tdr} 
 	Technical Design Report of the EXPERT setup of the Super-FRS Experiment Collaboration, https;//edms.cern.ch/document/1865700
