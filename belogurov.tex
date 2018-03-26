@@ -45,7 +45,7 @@
 \abstract{%
 %	\color{red}
 	The EXPERT setup located at the Super-FRS facility, the part of the FAIR complex in Darmstadt, Germany, is intended for investigation of properties of light exotic nuclei.
-	One of its modules, the high granularity  neutron detector NeuRad assembled from a large number of the scintillating fiber is intended for registration of neutrons emitted by investigated nuclei in low-energy decays. Feasibility of the detector strongly depends on its timing properties defined by the spatial distribution of ionization, light propagation inside the fibers, light emission kinetics and transition time jitter in the multi-anode photomultiplier tube. The first attempt of understanding the pulse formation in the prototype of the NeuRad  detector by comparing experimental results and Monte Carlo simulations is reported in this paper. 
+	One of its modules, the high granularity  neutron detector NeuRad assembled from a large number of the scintillating fiber is intended for registration of neutrons emitted by investigated nuclei in low-energy decays. Feasibility of the detector strongly depends on its timing properties defined by the spatial distribution of ionization, light propagation inside the fibers, light emission kinetics and transition time jitter in the multi-anode photomultiplier tube. The first attempt of understanding the pulse formation in the prototype of the NeuRad  detector by comparing experimental results and Monte Carlo (MC) simulations is reported in this paper. 
 	
 }
 %
@@ -95,8 +95,8 @@ If several fibers are fired due to the neutron re-scattering in detector volume 
 
 Feasibility of the detector strongly depends on its timing properties. Each detector pulse is a superposition of several single photoelectron pulses whose distribution in time and amplitude is defined by the  spatial distribution of ionization, light propagation inside the fibers, light emission kinetics, transition time jitter in the MAPMT, pulse shape and amplitude spectrum of the single photoelectron.
 
-The pulse shapes produced by the neutrons hitting the exactly known interaction point are difficult to study experimentally. However Monte Carlo (MC) study of the efficiency and precision of the neutron detector is possible provided that the MC is validated in more simple measurements.
-The first attempt of understanding the pulse formation in the prototype of the NeuRad  detector by comparing experimental results and Monte Carlo simulations is reported in this paper. 
+The pulse shapes produced by the neutrons hitting the exactly known interaction point are difficult to study experimentally. However MC study of the efficiency and precision of the neutron detector is possible provided that the MC is validated in more simple measurements.
+The first attempt of understanding the pulse formation in the prototype of the NeuRad  detector by comparing experimental results and MC simulations is reported in this paper. 
 
 \section{Test of the NeuRad prototype}
 
@@ -171,7 +171,7 @@ Several standard and rather simple data processing algorithms were implemented i
 Simulated and experimental summed pulses, normalized by their maximum amplitudes, in a logarithmic scale are shown in the Fig.\,\ref{ris:sum}.
 %\red{These pulses are normalized by their maximum amplitudes.}
 The trigger threshold for the simulated data was set to the 1.7 of the average single photoelectron amplitude.
-Such a threshold allowed to match the sharp bend at the leading edge (indicated with an arrow in the Fig.\,\ref{ris:sum}) in the both pulses. From this picture it can be established that the experimental pulse has the decay profile which includes a fast exponent, faster than the value from the data-sheet, followed by the long non-exponential tail. For simulated pulse there is a bump before the exponential decay. This feature is getting more prominent if the light losses at the optical interface go down or the cross talks go up. In order to get the quantitative fitting of the parameters and validation of the Monte Carlo model further measurements are needed. 
+Such a threshold allowed to match the sharp bend at the leading edge (indicated with an arrow in the Fig.\,\ref{ris:sum}) in the both pulses. From this picture it can be established that the experimental pulse has the decay profile which includes a fast exponent, faster than the value from the data-sheet, followed by the long non-exponential tail. For simulated pulse there is a bump before the exponential decay. This feature is getting more prominent if the light losses at the optical interface go down or the cross talks go up. In order to get the quantitative fitting of the parameters and validation of the MC model further measurements are needed. 
 
 The parameters of the readout chain needs to be precisely measured using a fast laser. The actual single photoelectron pulse shapes and spectrum should be acquired. Bigger number of pixels should be read out at the same time in order to study all the effects more carefully. As the next step, multichannel electronics based on the TOFPET ASIC \cite{petsys} will be used for the readout of the NeuRad prototype. A transfer function of these electronics will be implemented into the \er\, software in other to compare the simulated and the experimental data.
 
@@ -182,7 +182,7 @@ The parameters of the readout chain needs to be precisely measured using a fast 
 	The first small-size prototype of the NeuRad detector was investigated using the $\gamma$-source. The pulse shapes have been obtained using the DRS4 waveform digitizer board and have been studied individually and in average. Processing algorithms were implemented into the EXPERTroot software package.
 	In order to understand the pulse formation mechanism, the measurements were simulated using the \er.
 	
-	The influence of such parameters of the detector as light collection efficiency, interfiber cross talk, detection threshold and luminescence kinetics on the signal shape are understood. For a better understanding of the timing properties, quantitative validation of the Monte Carlo simulations and complete feasibility study it is necessary to conduct new measurements with the NeuRad prototype recording bigger number of channels and using well calibrated electronics.
+	The influence of such parameters of the detector as light collection efficiency, interfiber cross talk, detection threshold and luminescence kinetics on the signal shape are understood. For a better understanding of the timing properties, quantitative validation of the MC simulations and complete feasibility study it is necessary to conduct new measurements with the NeuRad prototype recording bigger number of channels and using well calibrated electronics.
 	The results of this study will allow a correct choice of the optimal readout electronics for the entire system.
 	
 	
