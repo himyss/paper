@@ -44,11 +44,8 @@
 }
 \abstract{%
 %	\color{red}
-	One of the subtopics of the Super-FRS Experiment Collaboration, being part of NUSTAR@FAIR, is investigation of properties of light exotic nuclei using EXPERT setup.
-	One of its modules, the NeuRad detector, is intended for registration of neutrons emitted by investigated nuclei. 
-	In order to study the characteristics of the detector, its prototype have been tested.
-	This work is dedicated to the study of formation mechanisms of the signals obtained from the NeuRad detector prototype.
-	The influence of the key parameters of the detector on the pulse shape are understood.
+	The EXPERT project at the Super-FRS facility at FAIR, Darmstadt, Germany, is aimed at investigation of properties of light exotic nuclei. One of its modules, the high granularity  neutron detector NeuRad assembled of a large number of the scintillating fiber is intended for registration of neutrons emitted by investigated nuclei in low-energy decays. Feasibilty of the detector strongly depends on its timing properties defined by the spatial distribution of ionization, light propagation inside the fibers, light emission kinetics and transition time jitter in the multi-anode photomultiplier tube. The first attempt of understanding the pulse formation in the prototype of the NeuRad  detector by comparing experimental results and Monte Carlo simulations is reported in this paper. 
+	
 }
 %
 \maketitle
@@ -58,118 +55,128 @@
 Properties of exotic nuclei represent one of the most important fields in modern nuclear physics.
 Such uncommon nuclei are characterized by a large excess of neutrons or protons and are located far from the nuclear stability. As far as the binding energy decreases, one may observe the transition from the discrete spectra to the nuclear resonances with many overlapping states and, as a consequence, such unique phenomena as neutron halo, soft mode of dipole excitation and others could be observed. Moreover, new decay channels, including many-body, are becoming open \cite{ufn}.
 
-As far as exotic nuclei are unstable one meets a problem how to produce them.
-One of the most developed facility for their production by separation in-flight will be the Super-FRS fragment separator at FAIR (Facility for Antiproton and Ion Research) \cite{diplom}. The project EXPERT (EXotic Particle Emission and Radioactivity by Tracking \cite{IMexpert}) dedicated to study of properties of exotic nuclei is a part of scientific program of the Super-FRS Experiment Collaboration. The EXPERT setup consists of five modules each of which is intended to detect different decay products \cite{tdr}.
-These modules may be enumerated as:
+One of \red{the best} facilities for production of beams of unstable exotic nuclei will be the Super-FRS fragment separator at FAIR (Facility for Antiproton and Ion Research) \red{[Official paper]}. The project EXPERT (EXotic Particle Emission and Radioactivity by Tracking \cite{IMexpert}) dedicated to study of properties of exotic nuclei is a part of scientific program of the Super-FRS Experiment Collaboration. The EXPERT setup will be situated in intermediate focal planes of the Super-FRS beam line. The setup consists of six modules \cite{tdr}:
 \begin{inparaenum}[(i)]
-	\item The radiation-hard silicon strip detector for Time-of-Flight and triggering.
+	\item \red{The secondary target for production of the nuclei of interest}
+	\item The radiation-hard silicon strip detector for Time-of-Flight measurements and triggering.
 	\item The microstrip silicon ($\mu$Si) tracking detectors.
 	\item The gamma-ray and light particles detector system GADAST (GAmma-ray Detectors Around Secondary Target).
 	\item The OTPC (Optical Time Projection Chamber) for radioactivity studies by the implantation-decay method.
 	\item The NeuRad (Neutron Radioactivity) fine-resolution neutron detector.
 \end{inparaenum}
 
-Moreover, the EXPERTroot framework \cite{er} for simulations of the experiments and processing of the experimental data and the software for simulation of theoretical distributions is indissociable part of the project.
+Moreover, the EXPERTroot framework \cite{er} for simulations of the experiments and processing of the experimental data and the software for simulation of theoretical distributions are indissociable parts of the project.
 %Additional important part of the EXPERT project is a framework for simulations of the experiments and processing of the experimental data. For this purpose a framework EXPERTroot \cite{er} has been developed.
 %%EXPERTroot is a framework for Monte-Carlo simulations of detector responses, event reconstruction and EXPERT experiment analysis.
-This paper is dedicated to understanding of the pulse shapes obtained from the NeuRad detector prototype. 
+
+%\red{This paper is dedicated to understanding of the pulse shapes obtained from the NeuRad detector prototype.}
 %All necessary methods of data processing and simulation were implemented into the EXPERTroot.
 
-\section{The NeuRad detector}
+%\section{The NeuRad detector}
 
-The neutron detector NeuRad is aimed at providing precise information on angular correlations between the neutrons and the heavy fragment emitted in the decay of the nucleus of interest. The heavy fragment will be identified by Super-FRS beam diagnostic system whereas trajectories of a heavy fragment and neutrons will be reconstructed by an array of the $\mu$Si detectors and the NeuRad detector respectively. 
-This information will be used to determine the decay energy of the investigated nucleus and its lifetime.
+The neutron detector NeuRad is aimed at providing precise information on angular correlations between the neutrons and the heavy fragment emitted in the decay of the nucleus of interest. The heavy fragment will be identified by Super-FRS beam diagnostic elements situated downstream of the secondary target, whereas trajectories of a heavy fragment and neutrons will be reconstructed by an array of the $\mu$Si detectors and the NeuRad detector respectively. This information will be used to determine the decay energy of the investigated nucleus and its lifetime.
 
-The NeuRad will be constructed from a large number of scintillating fibers ($\approx$10000 units). Each fiber will have a square cross section of 3$\times$3\,mm$^2$ and a length of 1\,m. Scintillating fibers will be grouped into bundles fitting the photosensors e.g. multi-anode PMTs (MAPMTs).
-The neutrons penetrating into the bundles will undergo different interaction processes, but the most important one for the neutron registration will be an elastic scattering on protons. In such a case the recoil proton will induce a scintillation light inside the fiber. 
-The light emitted within the full reflection angle travels to the MAPMTs located at the both ends of the fiber.
-The MAPMTs will be mounted to the bundles so that the area of the each pixel will completely overlap the frontal surface of one fiber.
-
-%\begin{figure}[h]
-%	\center{\includegraphics[width=0.8\linewidth]{neurad.png}}
-%	\caption{Operational principle of the NeuRad. Each scintillating fiber will be coupled to one pixel of the MAPMT. The neutron beam will penetrate through the frontal MAPMTs.}
-%	\label{ris:neuradPrinciple}
-%\end{figure}
-
-In the course of planned experiments, the NeuRad will be placed in 28\,m downstream of the secondary target so that the fibers will be oriented along the beam direction \cite{report}.
+The NeuRad will be constructed from a large number of scintillating fibers ($\approx$10000 units). Each fiber will have a square cross section of 3$\times$3\,mm$^2$ and a length of 1\,m. Scintillating fibers will be grouped into bundles fitting the photosensors e.g. multi-anode photomultiplier tubes (MAPMT). The MAPMT's will be mounted to the bundles so that the area of the each pixel will completely overlap the front surface of one fiber.
+%
+The NeuRad will be placed 28\,m downstream of the secondary target in such a way that the fibers will be oriented along the beam direction \cite{report}.
 % see Fig.\ref{ris:neuradPrinciple}. 
-This is planned in order to provide the sufficient efficiency of the detection and high angular resolution for the neutrons with energies 200-800\,MeV in the lab frame.
+It will provide the sufficient efficiency of the detection and high angular resolution for the neutrons with energies 200-800\,MeV in the lab frame.
+
+The neutrons penetrating the bundles will undergo different interaction processes. The most important one for the neutron registration is the elastic neutron-proton scattering. In such a case the recoil proton will induce scintillation light inside the fiber.
+The light emitted within the full reflection angle travels to the MAPMT's located at the both ends of the fiber.
 With such configuration the total angular acceptance of the detector will be about 12\,mrad.
 %This number is determined by the low transversal momentum of the neutrons expected in decays with energies in the range of 0.1-100\,keV.
-Such value is sufficient for registration the low transversal momenta of the neutrons expected in the decays with the energies in the range of 0.1-100\,keV.
+Such a value is sufficient for registration of the neutrons with low transversal momenta, as expected if the energy release in the decay is in the range of 0.1-100\,keV.
 
-In the case of a single scattering of the neutron inside the NeuRad, the position of the fired fiber or the cluster of the neighboring fibers gives information about the transversal coordinates of the interaction point. The time stamps of the signals from the both MAPMTs allow to derive the longitudinal position of the energy deposit providing a correction of the time-of-flight measurement. The time-of-flight information is used for the determination of the neutron kinetic energy. 
+In the case of a single scattering of the neutron inside the NeuRad and sufficiently high energy release in one fiber, the position of the fired fiber gives information about the transversal coordinates of the interaction point. The time stamps of the signals from the both MAPMT's allow to derive the longitudinal position of the hit (spatially restricted energy deposit) providing a correction of the time-of-flight measurement. The time-of-flight information is used for the determination of the neutron kinetic energy. 
 
-If several fibers are fired due to the neutron re-scattering or distribution of the energy deposited by the recoil proton, the first interaction point may be reconstructed by searching for the earliest signal in the upstream MAPMT. Besides, timing information may be used in more sophisticated analysis of the events with multiple hits.
+If several fibers are fired due to the neutron re-scattering in detector volume or sharing of the energy deposited by the recoil proton, the first interaction point may be reconstructed by searching for the earliest signal in the upstream MAPMT. Besides, timing information may be used in more sophisticated analysis of the events with multiple hits. 
+
+Feasibilty of the detector strongly depends on its timing properties. Each detector pulse is a superposition of several single photoelectron pulses whose distribution in time and amplitude is defined by the  spatial distribution of ionization, light propagation inside the fibers, \red{light emission kinetics}, transition time jitter in the MAPMT, single photoelectron pulse shape and  amplitude specrum.  
+
+The pulse shapes produced by the neutrons hitting the exactly known interaction point are difficult to study exerimentally. However Monte Carlo (MC) study of the efficiency and precision of the neutron detector is possible provided that the MC is validated in more simple measurements.
+The first attempt of understanding the pulse formation in the prototype of the NeuRad  detector by comparing experimental results and Monte Carlo simulations is reported in this paper. 
 
 \section{Test of NeuRad prototype}
 
-The first investigation of the NeuRad detector was conducted recently in the Flerov Laboratory of Nuclear Reactions JINR, Dubna. The NeuRad prototype was used for these test measurements. The sensitive part of the prototype was a bundle of 256 optical fibers made of the scintillator plastic BCF-12 \cite{crystals}. 
-Each fiber was covered with a white acrylic paint in the first layer and a black aerosol paint in the second one for the light insulation and had a cross section of 3$\times$3\,mm$^2$ and a length of 25\,cm. Two MAPMTs H9500 \cite{hm} were mounted to the both sides of the bundle. To improve this connection, optical grease was used.
+The first investigation of the NeuRad detector was performed recently in the Flerov Laboratory of Nuclear Reactions JINR, Dubna.
+The NeuRad prototype consisted of one bundle of 256 BCF-12 \cite{crystals} optical fibers having a square cross section of 3$\times$3\,mm$^2$, 25\,cm \red{--} long. 
+Each fiber was covered with a white acrylic paint as the internal layer and a black aerosol paint as an external one for the light insulation and had two MAPMT's H9500 \cite{hm} mounted to the both sides of the bundle. Optical grease was used to improve the junction.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{NeuRadexperiment.png}
 	\captionof{figure}{A scheme of the measurements with the NeuRad prototype. The prototype was irradiated by a collimated $\gamma$-source $^{60}$Co.
-	The gamma rays were focused at the geometrical center of the prototype and signals were collected by a couple of H9500 MAPMTs.	
+	The gamma rays were focused at the geometrical center of the prototype and signals were collected by a couple of H9500 MAPMT's.
 }
 \label{ris:neuradexp}
 \end{figure}
 
-This prototype was irradiated by a collimated gamma beam with the energies $E^{(1)}_{\gamma}$=1173\,keV and $E^{(2)}_{\gamma}$=1333\,keV emitted by a $^{60}$Co as showed in the Fig.\,\ref{ris:neuradexp}. Signals obtained from the MAPMTs were collected by the DRS4 evaluation board \cite{DRS} (12 bit at 5 GS/s) and saved for the each detected event.
+This prototype was irradiated by a collimated $^{60}$Co gamma-source with the energies $E^{(1)}_{\gamma}$=1173\,keV and $E^{(2)}_{\gamma}$=1333\,keV as showed in the Fig.\,\ref{ris:neuradexp}. Signals obtained from the MAPMT's were collected by the DRS4 evaluation board \cite{DRS} (12 bit at 5 GS/s) and saved for the each detected event. 
+Two channels of the board were employed for collection of information from two anodes corresponding to both sides of one fiber and remaining to channels were connected to one side of neighboring fibers.
+%Three of four channels of the DRS4 board were connected to one side of the prototype, the fourth one was connected to the other side.
+Sole collected anode on one side was used for triggering the readout with a threshold of 20 mV.
 
 \section{Simulations and data processing}
 
 The simulation and data processing were performed within the \er\, framework.
-The geometry created within the \er\ was used for the MC simulations.
-A particle transport through the setup was performed using the GEANT4 \cite{geant4} classes called from the EXPERTroot program. Obtained energy deposits were converted into the MAPMT anode pulses.
-Each pulse was calculated as a sum of single photoelectron pulses taking into account the following parameters and effects: light output of the scintillating fiber; the efficiency of the light trapping into the fiber due to a total internal reflection; the scintillation decay time; the light attenuation along the fiber; the light collection increase near the ends of the fiber; the light losses at the optical interface; the MAPMT quantum efficiency; the single photoelectron amplitude spectrum (\red{cite to WPT experiment???}),the  pulse shape, and the spread of the avalanche transition time through the dynode system; the cross-talk as a probability of the single photoelectron avalanche developing in the neighboring pixel. \red{A more detailed description of the simulation of the physical processes is described here \cite{er}.}
-Certain effects were not taken into account: any dependence of the pulse shape on the amplitude; the cross-talk as the charge sharing of a single photoelectron avalanche between the two or more anodes; the partial collection of the light after a diffuse scattering at the fiber faces; the electronic noises; the pulse shape distortion in the readout line. Most of the parameters for the simulations were taken from the data-sheets of the fibers and MAPMT. Only the single photoelectron pulse shape was fitted to the experimental data. The simulated pulse shapes had the same format as in the experimental data.
+%The geometry created within the \er\ was used for the MC simulations.
+A particle transport through the setup was performed using the GEANT4 \cite{geant4} classes called from the EXPERTroot software. Obtained energy deposits were converted into the MAPMT anode pulses.
+Each pulse was calculated as a sum of single photoelectron pulses taking into account the following parameters and effects: light output of the scintillating fiber; the efficiency of the light trapping into the fiber due to a total internal reflection; the scintillation decay time; the light attenuation along the fiber; the light collection increase near the ends of the fiber; the light losses at the optical interface; the MAPMT quantum efficiency; the single photoelectron amplitude spectrum, and the pulse shape; the spread of the photoelectorn avalanche transition time through the dynode system; the cross-talk as a probability of the single photoelectron avalanche developing in the neighboring pixel.
+%\red{A more detailed description of the simulation of the physical processes is described here \cite{er}.} 
+The simulated pulse shapes had the same format as in the experimental data. Implementation details can be foud in \cite{neuradSim}. 
 
-\red{The goal of these simulations was understanding the physical processes taking place in the detector and their parameterization in the \er. Good agreement of the results of the simulations and measurements will allow to predict the results of the neutron detection. It is expected that the detector signals caused by neutrons will will have larger amplitudes, but there will be no neutron/photon separation.} 
+Certain effects were not taken into account: any dependence of the pulse shape on the amplitude; the cross-talk as the charge sharing of a single photoelectron avalanche between two or more anodes; the partial collection of the light after a diffuse scattering at the fiber faces; the electronic noises; the pulse shape distortion in the readout line. Most of the parameters for the simulations were taken from the data-sheets of the fibers and MAPMT. The single photoelectron pulse shape was fitted to the experimental data. The single photoelectron amplitude spectrum was borrowed from \cite{adam2018}, where a similar MAPMT H12700 has been studied.
 
+%РАЗРАБОТКА СИСТЕМЫ СЧИТЫВАНИЯ
+%И ПРИЕМА ДАННЫХ ДЕТЕКТОРА RICH ЭКСПЕРИМЕНТА CBM J. Adamczewski-Musch et al, Inst and Exp tech  №3 2018 ,
+% DOI: 10.7868/S0032816218030023 
 
 \begin{figure}[h]
 %	\begin{minipage}[h]{0.25\linewidth}
 %		\center{\includegraphics[width=1\linewidth]{sim.png}} a) \\
 %	\end{minipage}
 %	\hfill
-	\begin{minipage}[h]{0.47\linewidth}
+	\begin{minipage}[h]{0.45\linewidth}
 		\center{\includegraphics[width=1\linewidth]{simsignal.png}} a) \\
 	\end{minipage}
 	\hfill
-	\begin{minipage}[h]{0.47\linewidth}
+	\begin{minipage}[h]{0.45\linewidth}
 		\center{\includegraphics[width=1\linewidth]{originalsignalform.png}} b) \\
 	\end{minipage}
-	\caption{ a) The simulated MAPMT anode output. b) The experimental signal shape.}
+	\caption{ The typical pulse shapes containing 10-15 photoelectrons. a) The simulated MAPMT anode output as a result of a composition of several photoelectrons fluctuating according to the assumed distributions  b) Typical shape of a measured signal containing about 12 photoelectrons.}
 	\label{ris:sim}
 \end{figure}
-Typical pulses obtained in simulations and measurements turned out qualitatively similar and are shown in the Fig.\,\ref{ris:sim}b) and the Fig.\,\ref{ris:sim}c) respectively. However, there is a clear difference between the simulated and the recorded experimental pulses. In the experimental ones one can notice a kind of low-amplitude afterpulses. Those can be due to several reasons, e.g. a stray capacity discharge and an influence of the readout line bandwidth, which manifests itself in the damped oscillations caused by the sharp leading edge.
+Typical pulses obtained in simulations and measurements (shown in the Fig.\,\ref{ris:sim}a) and the Fig.\,\ref{ris:sim}b) respectively) seem to follow the similar single photoelectron distributions in time and amplitude.
+However, there is a clear difference between the simulated and the recorded experimental pulses. \red{In the experimental ones one can notice a kind of low-amplitude ringing.} It can be due to several reasons, e.g. a stray capacity discharge and an influence of the readout line bandwidth, which manifests itself in the damped oscillations caused by the sharp leading edge.
 
-Several standard data processing algorithms were implemented into the \er, for example two discriminators --- Constant Fraction and Leading Edge, different event selection filters an alignment etc. The implemented algorithms allowed us to study the summed pulse and to understand qualitatively its basic features. All algorithms could be applied in the same way to both simulated and experimental data.
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[width=0.6\linewidth]{summ1.png}
-%	\caption{The pulse sums obtained in the measurements (red) and the simulations (blue) in a log scale.}\label{ris:sum}
-%\end{figure}
+Several standard and rather simple data processing algorithms were implemented into the \er\ framework, such as leading edge discriminator, different event selection filters, alignment and summing up of the pulses, etc. The implemented algorithms allowed us to study the summed pulse and to understand qualitatively its basic features. All algorithms could be applied in the same way to both simulated and experimental data.
 
-\begin{wrapfigure}{l}{0.6\linewidth}
-	\includegraphics[width=\linewidth]{summ.png}
-	\caption{The pulse sums obtained in the measurements (red) and the simulations (blue) in a log scale.}\label{ris:sum}
-\end{wrapfigure}
+%\begin{wrapfigure}{l}{0.63\linewidth}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.63\linewidth]{summ.png}
+	\caption{The pulse sums obtained in the measurements (red) and the simulations (blue) in a log scale. \red{Figure should be normalized!!!}}\label{ris:sum}
+%\end{wrapfigure}
+\end{figure}
 
-Simulated and experimental summed pulses in a logarithmic scale are shown in the Fig.\,\ref{ris:sum}. \red{These pulses are normalized by their maximum amplitudes.}
+
+
+Simulated and experimental summed pulses, normalized by their maximum amplitudes, in a logarithmic scale are shown in the Fig.\,\ref{ris:sum}.
+%\red{These pulses are normalized by their maximum amplitudes.}
 The trigger threshold for the simulated data was set to the 1.7 of the average single photoelectron amplitude.
 Such a threshold allowed to match the sharp bend at the leading edge (indicated with an arrow in the Fig.\,\ref{ris:sum}) in the both pulses. From this picture it can be established that the experimental pulse has the decay profile which includes a fast exponent, faster than the value from the data-sheet, followed by the long non-exponential tail. For simulated pulse there is a bump before the exponential decay. This feature is getting more prominent if the light losses at the optical interface go down or the cross talks go up. In order to get the quantitative fitting of the parameters and validation of the Monte Carlo model further measurements are needed. 
 
-The parameters of the readout circuit needs to be precisely measured using a fast laser. Bigger number of pixels should be read out at the same time in order to study all the effects more carefully. As the next step, multichannel electronics based on TOFPET ASIC \cite{petsys} will be used for the readout of the NeuRad prototype. A transfer function of these electronics will be implemented into \er\, software in other to compare the simulated and experimental data.
+The parameters of the readout \red{circuit} needs to be precisely measured using a fast laser. The actual single photoelectron pulse shapes and spectrum should be acquired. Bigger number of pixels should be read out at the same time in order to study all the effects more carefully. As the next step, multichannel electronics based on TOFPET ASIC \cite{petsys} will be used for the readout of the NeuRad prototype. A transfer function of these electronics will be implemented into \er\, software in other to compare the simulated and experimental data.
 
 %It is necessary to use the readout lines tested for their own performance with a fast laser and to read out the bigger number of pixels at the same time in order to study all the effects more carefully.
 
 \section{Conclusion}
 		
-	The first small-size prototype of the NeuRad detector was investigated using the $\gamma$-source. The pulse shapes have been obtained using the waveform digitizer and have been studied with the specially developed methods of the digital pulse processing. Processing algorithms were implemented into the EXPERTroot software package. The measurements were simulated using the \er. The influence of the key parameters of the detector on the signal shape are understood. For a better understanding of the timing properties and a quantitative validation of the Monte Carlo simulations it is necessary to conduct new measurements with the NeuRad prototype recording bigger number of channels and using well calibrated electronics.
+	The first small-size prototype of the NeuRad detector was investigated using the $\gamma$-source. The pulse shapes have been obtained using the DSR4 waveform digitizer board and have been studied individually and in average. Processing algorithms were implemented into the EXPERTroot software package. The measurements were simulated using the \er. The influence of such parameters of the detector as light collection efficiency, interfiber cross talk, detection threshold and luminiscence kinetics on the signal shape are understood. For a better understanding of the timing properties, quantitative validation of the Monte Carlo simulations and complete feasibility study it is necessary to conduct new measurements with the NeuRad prototype recording bigger number of channels and using well calibrated electronics.
 	The results of this study will allow a correct choice of the optimal readout electronics for the entire system.
+	
+	\red{The goal of these simulations was understanding the physical processes taking place in the detector and their parameterization in the \er. Good agreement of the results of the simulations and measurements will allow to predict the results of the neutron detection. It is expected that the detector signals caused by neutrons will will have larger amplitudes, but there will be no neutron/photon separation.} 
 	
 	%Prototype of the NeuRad detector was investigated for the timing properties.
 	%Standard algorithms for signal processing were implemented into the \er\ framework. The simulation of the MAPMT's time response was developed and implemented as well.
@@ -211,6 +218,12 @@ This  work was partly supported by the Helmholtz Association under grant agreeme
 	
 	\bibitem{DRS}
 	https://www.psi.ch/drs/
+	
+	\bibitem{neuradSim}
+	http://er.jinr.ru/neurad.html
+	
+	\bibitem{adam2018}
+	\red{J. Adamczewski-Musch et al., Inst. and Exp. Tech. (3) 2018 ,}
 	
 	\bibitem{geant4}
 	Nuclear Instruments and Methods in Physics Research A 506 (2003) 250-303, and
